@@ -522,7 +522,7 @@ public class Ficha {
     
     @Override
     public String toString(){
-        String res = "Color: "+color+".\n";
+        String res = "";
         for(int i=0; i<x; i++){
             for(int j=0; j<y; j++){
                 if(celda[i][j].color != -1)

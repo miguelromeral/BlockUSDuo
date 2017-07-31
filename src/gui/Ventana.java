@@ -257,6 +257,11 @@ public class Ventana extends javax.swing.JFrame {
         restantesJ1.setText("Te quedan "+juego.jugadores[0].restantes()+" bloques.");
         restantesJ2.setText("Te quedan "+juego.jugadores[1].restantes()+" bloques.");
         
+        labelTurnoJ1.setText("¡TU TURNO!");
+        labelTurnoJ2.setText("");
+        labelTurnoJ1.setForeground(getColorByNum(0));
+        labelTurnoJ2.setForeground(getColorByNum(1));
+        
        
     }
     
@@ -282,7 +287,24 @@ public class Ventana extends javax.swing.JFrame {
                         restantesJ2.setText("Te quedan "+juego.jugadores[1].restantes()+" bloques.");
                     }
                     juego.cambiarTurno();
+                    if(juego.turno == 0){
+                        labelTurnoJ1.setText("¡TU TURNO!");
+                        labelTurnoJ2.setText("");
+                    }else{
+                        labelTurnoJ2.setText("¡TU TURNO!");
+                        labelTurnoJ1.setText("");
+                    }
                     jLabel2.setText("¡Turno del jugador "+(juego.turno + 1)+"!");
+                }else{
+                    switch(juego.total_turnos){
+                        case 0: 
+                            botones[9][4].setBackground(getColorByNum(2));
+                            botones[4][9].setBackground(getColorByNum(3));
+                            break;
+                        case 1:
+                            botones[4][9].setBackground(getColorByNum(3));
+                            break;
+                    }
                 }
             }
         }
@@ -579,10 +601,6 @@ public class Ventana extends javax.swing.JFrame {
         restantesJ2 = new javax.swing.JLabel();
         restantesJ1 = new javax.swing.JLabel();
         pj1TodasFichas = new javax.swing.JPanel();
-        pj2Seleccionada = new javax.swing.JPanel();
-        bDarVuelta1 = new javax.swing.JButton();
-        bDarVuelta3 = new javax.swing.JButton();
-        bGirar1 = new javax.swing.JButton();
         pj2TodasFichas = new javax.swing.JPanel();
         panelSeleccionadaJ0 = new javax.swing.JPanel();
         panelBotonesJ0 = new javax.swing.JPanel();
@@ -590,6 +608,16 @@ public class Ventana extends javax.swing.JFrame {
         bDarVuelta2 = new javax.swing.JButton();
         bGirar = new javax.swing.JButton();
         pj1Seleccionada = new javax.swing.JPanel();
+        panelSeleccionadaJ1 = new javax.swing.JPanel();
+        panelBotones1 = new javax.swing.JPanel();
+        bDarVuelta1 = new javax.swing.JButton();
+        bDarVuelta3 = new javax.swing.JButton();
+        bGirar1 = new javax.swing.JButton();
+        pj2Seleccionada = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        labelTurnoJ2 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        labelTurnoJ1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("BlockUs Duo");
@@ -1978,40 +2006,18 @@ public class Ventana extends javax.swing.JFrame {
         restantesJ2.setText("Y ------------------>");
 
         restantesJ1.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        restantesJ1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         restantesJ1.setText("Y ------------------>");
 
-        pj1TodasFichas.setLayout(new java.awt.GridLayout(5, 5));
+        pj1TodasFichas.setLayout(new java.awt.GridLayout(3, 6));
 
-        pj2Seleccionada.setLayout(new java.awt.BorderLayout());
-
-        bDarVuelta1.setText("Voltearla");
-        bDarVuelta1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bDarVuelta1ActionPerformed(evt);
-            }
-        });
-
-        bDarVuelta3.setText("Voltearla2");
-        bDarVuelta3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bDarVuelta3ActionPerformed(evt);
-            }
-        });
-
-        bGirar1.setText("Girar (H.)");
-        bGirar1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bGirar1ActionPerformed(evt);
-            }
-        });
-
-        pj2TodasFichas.setLayout(new java.awt.GridLayout(4, 6));
+        pj2TodasFichas.setLayout(new java.awt.GridLayout(3, 6));
 
         panelSeleccionadaJ0.setLayout(new java.awt.BorderLayout());
 
         panelBotonesJ0.setLayout(new java.awt.GridLayout(3, 1));
 
-        bDarVuelta.setText("Voltearla");
+        bDarVuelta.setText("G. Vert.");
         bDarVuelta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bDarVueltaActionPerformed(evt);
@@ -2019,7 +2025,7 @@ public class Ventana extends javax.swing.JFrame {
         });
         panelBotonesJ0.add(bDarVuelta);
 
-        bDarVuelta2.setText("Voltearla2");
+        bDarVuelta2.setText("G. Horiz.");
         bDarVuelta2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bDarVuelta2ActionPerformed(evt);
@@ -2027,7 +2033,7 @@ public class Ventana extends javax.swing.JFrame {
         });
         panelBotonesJ0.add(bDarVuelta2);
 
-        bGirar.setText("Girar (H.)");
+        bGirar.setText("G. Horario");
         bGirar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bGirarActionPerformed(evt);
@@ -2040,6 +2046,53 @@ public class Ventana extends javax.swing.JFrame {
         pj1Seleccionada.setLayout(new java.awt.BorderLayout());
         panelSeleccionadaJ0.add(pj1Seleccionada, java.awt.BorderLayout.CENTER);
 
+        panelSeleccionadaJ1.setLayout(new java.awt.BorderLayout());
+
+        panelBotones1.setLayout(new java.awt.GridLayout(3, 1));
+
+        bDarVuelta1.setText("G. Vert.");
+        bDarVuelta1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bDarVuelta1ActionPerformed(evt);
+            }
+        });
+        panelBotones1.add(bDarVuelta1);
+
+        bDarVuelta3.setText("G. Horiz.");
+        bDarVuelta3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bDarVuelta3ActionPerformed(evt);
+            }
+        });
+        panelBotones1.add(bDarVuelta3);
+
+        bGirar1.setText("G. Horario");
+        bGirar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bGirar1ActionPerformed(evt);
+            }
+        });
+        panelBotones1.add(bGirar1);
+
+        panelSeleccionadaJ1.add(panelBotones1, java.awt.BorderLayout.LINE_END);
+
+        pj2Seleccionada.setLayout(new java.awt.BorderLayout());
+        panelSeleccionadaJ1.add(pj2Seleccionada, java.awt.BorderLayout.CENTER);
+
+        jPanel1.setLayout(new java.awt.GridLayout());
+
+        labelTurnoJ2.setFont(new java.awt.Font("Ubuntu", 1, 36)); // NOI18N
+        labelTurnoJ2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelTurnoJ2.setText("jLabel3");
+        jPanel1.add(labelTurnoJ2);
+
+        jPanel2.setLayout(new java.awt.GridLayout());
+
+        labelTurnoJ1.setFont(new java.awt.Font("Ubuntu", 1, 36)); // NOI18N
+        labelTurnoJ1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelTurnoJ1.setText("jLabel3");
+        jPanel2.add(labelTurnoJ1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -2048,32 +2101,28 @@ public class Ventana extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(restantesJ1, javax.swing.GroupLayout.DEFAULT_SIZE, 291, Short.MAX_VALUE)
-                                .addGap(196, 196, 196))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(263, 263, 263)
-                                .addComponent(panelSeleccionadaJ0, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGap(9, 9, 9)
-                                .addComponent(pj1TodasFichas, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(pj1TodasFichas, javax.swing.GroupLayout.PREFERRED_SIZE, 464, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(panelSeleccionadaJ0, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(restantesJ1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(pTablero, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(restantesJ2, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(pj2Seleccionada, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(panelSeleccionadaJ1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(bDarVuelta1)
-                                    .addComponent(bDarVuelta3)
-                                    .addComponent(bGirar1)))
-                            .addComponent(pj2TodasFichas, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(pj2TodasFichas, javax.swing.GroupLayout.PREFERRED_SIZE, 464, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(restantesJ2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addComponent(jLabel1))
                 .addContainerGap())
         );
@@ -2089,23 +2138,19 @@ public class Ventana extends javax.swing.JFrame {
                     .addComponent(restantesJ1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(pj2Seleccionada, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(bDarVuelta1)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(bDarVuelta3)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(bGirar1)))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(pj2TodasFichas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addComponent(pTablero, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(panelSeleccionadaJ0, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(5, 5, 5)
-                        .addComponent(pj1TodasFichas, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(panelSeleccionadaJ1, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(pj2TodasFichas, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pTablero, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(panelSeleccionadaJ0, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(pj1TodasFichas, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
@@ -3203,9 +3248,15 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JButton boton_99;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel labelTurnoJ1;
+    private javax.swing.JLabel labelTurnoJ2;
     private javax.swing.JPanel pTablero;
+    private javax.swing.JPanel panelBotones1;
     private javax.swing.JPanel panelBotonesJ0;
     private javax.swing.JPanel panelSeleccionadaJ0;
+    private javax.swing.JPanel panelSeleccionadaJ1;
     private javax.swing.JPanel pj1Seleccionada;
     private javax.swing.JPanel pj1TodasFichas;
     private javax.swing.JPanel pj2Seleccionada;
