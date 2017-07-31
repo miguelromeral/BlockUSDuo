@@ -23,7 +23,7 @@ public class Ficha {
     
     public static Ficha fichaPorID(int tipo_ficha, int color){
         Ficha f = new Ficha(color);
-        switch(tipo_ficha){
+                switch(tipo_ficha){
                     /*
             Ficha 0
             
@@ -38,6 +38,7 @@ public class Ficha {
                         }
                     }
                     f.celda[0][0].pintar(color);
+                    f.celda[0][0].esquina = true;
                     return f;
                     /*
             Ficha 0
@@ -55,6 +56,8 @@ public class Ficha {
                     }
                     f.celda[0][0].pintar(color);
                     f.celda[0][1].pintar(color);
+                    f.celda[0][0].esquina = true;
+                    f.celda[0][1].esquina = true;
                     return f;
                     /*
             Ficha 0
@@ -74,6 +77,8 @@ public class Ficha {
                     f.celda[0][0].pintar(color);
                     f.celda[0][1].pintar(color);
                     f.celda[0][2].pintar(color);
+                    f.celda[0][0].esquina = true;
+                    f.celda[0][2].esquina = true;
                     return f;
                     /*
             Ficha 0
@@ -92,6 +97,9 @@ public class Ficha {
                     f.celda[0][0].pintar(color);
                     f.celda[0][1].pintar(color);
                     f.celda[1][1].pintar(color);
+                    f.celda[0][0].esquina = true;
+                    f.celda[0][1].esquina = true;
+                    f.celda[1][1].esquina = true;
                     return f;
                     /*
             Ficha 0
@@ -113,6 +121,8 @@ public class Ficha {
                     f.celda[0][1].pintar(color);
                     f.celda[0][2].pintar(color);
                     f.celda[0][3].pintar(color);
+                    f.celda[0][0].esquina = true;
+                    f.celda[0][3].esquina = true;
                     return f;
                     /*
             Ficha 0
@@ -133,6 +143,9 @@ public class Ficha {
                     f.celda[1][1].pintar(color);
                     f.celda[0][2].pintar(color);
                     f.celda[1][2].pintar(color);
+                    f.celda[1][0].esquina = true;
+                    f.celda[0][2].esquina = true;
+                    f.celda[1][2].esquina = true;
                     return f;
                     /*
             Ficha 0
@@ -153,6 +166,9 @@ public class Ficha {
                     f.celda[0][1].pintar(color);
                     f.celda[1][1].pintar(color);
                     f.celda[0][2].pintar(color);
+                    f.celda[0][0].esquina = true;
+                    f.celda[1][1].esquina = true;
+                    f.celda[0][2].esquina = true;
                     return f;
             /*
             Ficha 0
@@ -172,6 +188,10 @@ public class Ficha {
                     f.celda[1][0].pintar(color);
                     f.celda[0][1].pintar(color);
                     f.celda[1][1].pintar(color);
+                    f.celda[0][0].esquina = true;
+                    f.celda[0][1].esquina = true;
+                    f.celda[1][0].esquina = true;
+                    f.celda[1][1].esquina = true;
                     return f;
                     /*
             Ficha 0
@@ -191,6 +211,10 @@ public class Ficha {
                     f.celda[1][0].pintar(color);
                     f.celda[1][1].pintar(color);
                     f.celda[2][1].pintar(color);
+                    f.celda[0][0].esquina = true;
+                    f.celda[1][0].esquina = true;
+                    f.celda[1][1].esquina = true;
+                    f.celda[2][1].esquina = true;
                     return f;
                     /*
             Ficha 0
@@ -214,6 +238,8 @@ public class Ficha {
                     f.celda[0][2].pintar(color);
                     f.celda[0][3].pintar(color);
                     f.celda[0][4].pintar(color);
+                    f.celda[0][0].esquina = true;
+                    f.celda[0][4].esquina = true;
                     return f;
                     /*
             Ficha 0
@@ -236,6 +262,9 @@ public class Ficha {
                     f.celda[1][2].pintar(color);
                     f.celda[0][3].pintar(color);
                     f.celda[1][3].pintar(color);
+                    f.celda[1][0].esquina = true;
+                    f.celda[1][3].esquina = true;
+                    f.celda[0][3].esquina = true;
                     return f;
                     /*
             Ficha 0
@@ -258,6 +287,10 @@ public class Ficha {
                     f.celda[0][2].pintar(color);
                     f.celda[1][2].pintar(color);
                     f.celda[0][3].pintar(color);
+                    f.celda[1][0].esquina = true;
+                    f.celda[0][2].esquina = true;
+                    f.celda[1][2].esquina = true;
+                    f.celda[0][3].esquina = true;
                     return f;
                     /*
             Ficha 0
@@ -279,6 +312,10 @@ public class Ficha {
                     f.celda[1][1].pintar(color);
                     f.celda[0][2].pintar(color);
                     f.celda[1][2].pintar(color);
+                    f.celda[1][0].esquina = true;
+                    f.celda[0][1].esquina = true;
+                    f.celda[0][2].esquina = true;
+                    f.celda[1][2].esquina = true;
                     return f;
                     /*
             Ficha 0
@@ -300,6 +337,10 @@ public class Ficha {
                     f.celda[1][1].pintar(color);
                     f.celda[0][2].pintar(color);
                     f.celda[1][2].pintar(color);
+                    f.celda[0][0].esquina = true;
+                    f.celda[1][0].esquina = true;
+                    f.celda[0][2].esquina = true;
+                    f.celda[1][2].esquina = true;
                     return f;
                     /*
             Ficha 0
@@ -322,6 +363,9 @@ public class Ficha {
                     f.celda[1][1].pintar(color);
                     f.celda[0][2].pintar(color);
                     f.celda[0][3].pintar(color);
+                    f.celda[0][0].esquina = true;
+                    f.celda[1][1].esquina = true;
+                    f.celda[0][3].esquina = true;
                     return f;
                     /*
             Ficha 0
@@ -343,6 +387,9 @@ public class Ficha {
                     f.celda[0][2].pintar(color);
                     f.celda[1][2].pintar(color);
                     f.celda[2][2].pintar(color);
+                    f.celda[1][0].esquina = true;
+                    f.celda[0][2].esquina = true;
+                    f.celda[2][2].esquina = true;
                     return f;
                     /*
             Ficha 0
@@ -364,6 +411,9 @@ public class Ficha {
                     f.celda[0][2].pintar(color);
                     f.celda[1][2].pintar(color);
                     f.celda[2][2].pintar(color);
+                    f.celda[0][0].esquina = true;
+                    f.celda[0][2].esquina = true;
+                    f.celda[2][2].esquina = true;
                     return f;
                     /*
             Ficha 0
@@ -385,6 +435,11 @@ public class Ficha {
                     f.celda[1][1].pintar(color);
                     f.celda[2][1].pintar(color);
                     f.celda[2][2].pintar(color);
+                    f.celda[0][0].esquina = true;
+                    f.celda[1][0].esquina = true;
+                    f.celda[1][1].esquina = true;
+                    f.celda[2][1].esquina = true;
+                    f.celda[2][2].esquina = true;
                     return f;/*
             Ficha 1
               [][]
@@ -404,6 +459,10 @@ public class Ficha {
                     f.celda[1][1].pintar(color);
                     f.celda[0][2].pintar(color);
                     f.celda[1][2].pintar(color);
+                    f.celda[1][0].esquina = true;
+                    f.celda[2][0].esquina = true;
+                    f.celda[0][2].esquina = true;
+                    f.celda[1][2].esquina = true;
                     return f;
                     /*
             Ficha 0
@@ -425,6 +484,10 @@ public class Ficha {
                     f.celda[1][1].pintar(color);
                     f.celda[2][1].pintar(color);
                     f.celda[1][2].pintar(color);
+                    f.celda[0][0].esquina = true;
+                    f.celda[0][1].esquina = true;
+                    f.celda[2][1].esquina = true;
+                    f.celda[1][2].esquina = true;
                     return f;
                     /*
             Ficha 0
@@ -446,8 +509,14 @@ public class Ficha {
                     f.celda[1][1].pintar(color);
                     f.celda[2][1].pintar(color);
                     f.celda[1][2].pintar(color);
+                    f.celda[1][0].esquina = true;
+                    f.celda[0][1].esquina = true;
+                    f.celda[2][1].esquina = true;
+                    f.celda[1][2].esquina = true;
                     return f;
             default: return null;
+
+
         }
     }
     
@@ -491,10 +560,154 @@ public class Ficha {
 
     }
     
+    public void voltear2(){
+        Celda aux;
+        int mit_y = (int) y / 2;
+        for(int i=0; i<x; i++){
+            for(int j=0; j<mit_y; j++){
+                aux = celda[i][j];
+                celda[i][j] = celda[i][y-1-j];
+                celda[i][y-1-j] = aux;
+            }
+        }
+
+    }
+    /*
+    public boolean esquina(int x, int y){
+        if(x >= 0 && y >= 0 && x < this.x && y < this.y){
+            if(celda[x][y].color == -1){
+                return false;
+            }
+            int col = celda[x][y].color;
+            if(x == 0){
+                if(y == 0){
+                    //Esquina izquierda superior
+                    return true;
+                }else{
+                   if(y == this.y - 1){
+                       //Esquina derecha superior
+                       return true;
+                   } else{
+                       //Lateral superior
+                       if(celda[x][y].color == celda[x+1][y].color
+                               && celda[x][y+1].color != col
+                               && celda[x][y-1].color != col){
+                           return true;
+                       }
+                       if(celda[x][y].color == celda[x][y+1].color
+                               && celda[x+1][y].color != col
+                               && celda[x][y-1].color != col){
+                           return true;
+                       }
+                       if(celda[x][y].color == celda[x][y-1].color
+                               && celda[x+1][y].color != col
+                               && celda[x][y+1].color != col){
+                           return true;
+                       }
+                   }
+                }
+            }else{
+                if(x == this.x - 1){
+                    if(y == 0){
+                        //Esquina izquierda inferior
+                        return true;
+                    }else{
+                       if(y == this.y - 1){
+                           //Esquina derecha inferior
+                           return true;
+                       } else{
+                           //Lateral inferior
+                           if(celda[x][y].color == celda[x-1][y].color
+                                   && celda[x][y+1].color != col
+                                   && celda[x][y+1].color != col){
+                                return true;
+                            }
+                           if(celda[x][y].color == celda[x][y+1].color
+                                   && celda[x-1][y].color != col
+                                   && celda[x][y-1].color != col){
+                                return true;
+                            }
+                           if(celda[x][y].color == celda[x][y-1].color
+                                   && celda[x-1][y].color != col
+                                   && celda[x][y+1].color != col){
+                                return true;
+                            }
+                       }
+                    }
+                }else{
+                    if(y == 0){
+                        //Lateral izquierdo
+                        //....
+                        return true;
+                    }else{
+                       if(y == this.y - 1){
+                           //Lateral derecho
+                           if(celda[x][y].color == celda[x-1][y].color
+                                   && celda[x+1][y].color != col
+                                   && celda[x][y-1].color != col){
+                                return true;
+                            }
+                           if(celda[x][y].color == celda[x+1][y].color
+                                   && celda[x-1][y].color != col
+                                   && celda[x][y-1].color != col){
+                                return true;
+                            }
+                           if(celda[x][y].color == celda[x][y-1].color
+                                   && celda[x-1][y].color != col
+                                   && celda[x+1][y].color != col){
+                                return true;
+                            }
+                       } else{
+                           //Resto de la cuadrícula... (desde 3x3)
+                           int lu, lr, ld, ll;
+                           lu = celda[x-1][y].color;
+                           lr = celda[x][y+1].color;
+                           ld = celda[x+1][y].color;
+                           ll = celda[x][y-1].color;
+                           if(lu == ll && lr != col && ld != col){
+                               return true;
+                           }
+                           if(lu == lr && ll != col && ld != col){
+                               return true;
+                           }
+                           if(ld == ll && lr != col && lu != col){
+                               return true;
+                           }
+                           if(ld == lr && ll != col && lu != col){
+                               return true;
+                           }
+                           if(lu == color && ld != col && lr != col && ll != col){
+                               return true;
+                           }
+                           if(lr == color && ld != col && lu != col && ll != col){
+                               return true;
+                           }
+                           if(ld == color && lu != col && lr != col && ll != col){
+                               return true;
+                           }
+                           if(ll == color && ld != col && lr != col && lu != col){
+                               return true;
+                           }
+                       }
+                    }
+                }
+            }
+            
+        }
+        return false;
+    }*/
+    
     public void girar_horario(){
-        /*int aux = x;
+        int ax = x;
+        int ay = y;
         x = y;
-        y = aux;*/
-        //...
+        y = ax;
+        Celda nuevas[][] = new Celda[x][y];
+        for(int i=ax-1; i>= 0; i--){
+            for(int j=ay-1; j>=0; j--){
+                nuevas[j][i] = celda[i][j];
+            }
+        }
+        celda = nuevas;
     }
 }

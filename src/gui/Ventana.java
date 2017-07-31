@@ -28,201 +28,202 @@ public class Ventana extends javax.swing.JFrame {
     
     public void iniciarBotones(){
         botones[0][0] = boton_0;
-        botones[0][1] = boton_1;
-        botones[0][2] = boton_2;
-        botones[0][0] = boton_3;
-        botones[0][0] = boton_4;
-        botones[0][0] = boton_5;
-        botones[0][0] = boton_6;
-        botones[0][0] = boton_7;
-        botones[0][0] = boton_8;
-        botones[0][0] = boton_9;
-        botones[0][0] = boton_10;
-        botones[0][0] = boton_11;
-        botones[0][0] = boton_12;
-        botones[0][0] = boton_13;
-        botones[1][1] = boton_14;
+        botones[1][0] = boton_1;
+        botones[2][0] = boton_2;
+        botones[3][0] = boton_3;
+        botones[4][0] = boton_4;
+        botones[5][0] = boton_5;
+        botones[6][0] = boton_6;
+        botones[7][0] = boton_7;
+        botones[8][0] = boton_8;
+        botones[9][0] = boton_9;
+        botones[10][0] = boton_10;
+        botones[11][0] = boton_11;
+        botones[12][0] = boton_12;
+        botones[13][0] = boton_13;
+        botones[0][1] = boton_14;
         botones[1][1] = boton_15;
-        botones[1][1] = boton_16;
-        botones[1][1] = boton_17;
-        botones[1][1] = boton_18;
-        botones[1][1] = boton_19;
-        botones[1][1] = boton_20;
-        botones[1][1] = boton_21;
-        botones[1][1] = boton_22;
-        botones[1][1] = boton_23;
-        botones[1][1] = boton_24;
-        botones[1][1] = boton_25;
-        botones[1][1] = boton_26;
-        botones[1][1] = boton_27;
-        botones[2][2] = boton_28;
-        botones[2][2] = boton_29;
+        botones[2][1] = boton_16;
+        botones[3][1] = boton_17;
+        botones[4][1] = boton_18;
+        botones[5][1] = boton_19;
+        botones[6][1] = boton_20;
+        botones[7][1] = boton_21;
+        botones[8][1] = boton_22;
+        botones[9][1] = boton_23;
+        botones[10][1] = boton_24;
+        botones[11][1] = boton_25;
+        botones[12][1] = boton_26;
+        botones[13][1] = boton_27;
+        botones[0][2] = boton_28;
+        botones[1][2] = boton_29;
         botones[2][2] = boton_30;
-        botones[2][2] = boton_31;
-        botones[2][2] = boton_32;
-        botones[2][2] = boton_33;
-        botones[2][2] = boton_34;
-        botones[2][2] = boton_35;
-        botones[2][2] = boton_36;
-        botones[2][2] = boton_37;
-        botones[2][2] = boton_38;
-        botones[2][2] = boton_39;
-        botones[2][2] = boton_40;
-        botones[2][2] = boton_41;
-        botones[3][3] = boton_42;
-        botones[3][3] = boton_43;
-        botones[3][3] = boton_44;
+        botones[3][2] = boton_31;
+        botones[4][2] = boton_32;
+        botones[5][2] = boton_33;
+        botones[6][2] = boton_34;
+        botones[7][2] = boton_35;
+        botones[8][2] = boton_36;
+        botones[9][2] = boton_37;
+        botones[10][2] = boton_38;
+        botones[11][2] = boton_39;
+        botones[12][2] = boton_40;
+        botones[13][2] = boton_41;
+        botones[0][3] = boton_42;
+        botones[1][3] = boton_43;
+        botones[2][3] = boton_44;
         botones[3][3] = boton_45;
-        botones[3][3] = boton_46;
-        botones[3][3] = boton_47;
-        botones[3][3] = boton_48;
-        botones[3][3] = boton_49;
-        botones[3][3] = boton_50;
-        botones[3][3] = boton_51;
-        botones[3][3] = boton_52;
-        botones[3][3] = boton_53;
-        botones[3][3] = boton_54;
-        botones[3][3] = boton_55;
-        botones[4][4] = boton_56;
-        botones[4][4] = boton_57;
-        botones[4][4] = boton_58;
-        botones[4][4] = boton_59;
+        botones[4][3] = boton_46;
+        botones[5][3] = boton_47;
+        botones[6][3] = boton_48;
+        botones[7][3] = boton_49;
+        botones[8][3] = boton_50;
+        botones[9][3] = boton_51;
+        botones[10][3] = boton_52;
+        botones[11][3] = boton_53;
+        botones[12][3] = boton_54;
+        botones[13][3] = boton_55;
+        botones[0][4] = boton_56;
+        botones[1][4] = boton_57;
+        botones[2][4] = boton_58;
+        botones[3][4] = boton_59;
         botones[4][4] = boton_60;
-        botones[4][4] = boton_61;
-        botones[4][4] = boton_62;
-        botones[4][4] = boton_63;
-        botones[4][4] = boton_64;
-        botones[4][4] = boton_65;
-        botones[4][4] = boton_66;
-        botones[4][4] = boton_67;
-        botones[4][4] = boton_68;
-        botones[4][4] = boton_69;
-        botones[5][5] = boton_70;
-        botones[5][5] = boton_71;
-        botones[5][5] = boton_72;
-        botones[5][5] = boton_73;
-        botones[5][5] = boton_74;
+        botones[5][4] = boton_61;
+        botones[6][4] = boton_62;
+        botones[7][4] = boton_63;
+        botones[8][4] = boton_64;
+        botones[9][4] = boton_65;
+        botones[10][4] = boton_66;
+        botones[11][4] = boton_67;
+        botones[12][4] = boton_68;
+        botones[13][4] = boton_69;
+        botones[0][5] = boton_70;
+        botones[1][5] = boton_71;
+        botones[2][5] = boton_72;
+        botones[3][5] = boton_73;
+        botones[4][5] = boton_74;
         botones[5][5] = boton_75;
-        botones[5][5] = boton_76;
-        botones[5][5] = boton_77;
-        botones[5][5] = boton_78;
-        botones[5][5] = boton_79;
-        botones[5][5] = boton_80;
-        botones[5][5] = boton_81;
-        botones[5][5] = boton_82;
-        botones[5][5] = boton_83;
-        botones[6][6] = boton_84;
-        botones[6][6] = boton_85;
-        botones[6][6] = boton_86;
-        botones[6][6] = boton_87;
-        botones[6][6] = boton_88;
-        botones[6][6] = boton_89;
+        botones[6][5] = boton_76;
+        botones[7][5] = boton_77;
+        botones[8][5] = boton_78;
+        botones[9][5] = boton_79;
+        botones[10][5] = boton_80;
+        botones[11][5] = boton_81;
+        botones[12][5] = boton_82;
+        botones[13][5] = boton_83;
+        botones[0][6] = boton_84;
+        botones[1][6] = boton_85;
+        botones[2][6] = boton_86;
+        botones[3][6] = boton_87;
+        botones[4][6] = boton_88;
+        botones[5][6] = boton_89;
         botones[6][6] = boton_90;
-        botones[6][6] = boton_91;
-        botones[6][6] = boton_92;
-        botones[6][6] = boton_93;
-        botones[6][6] = boton_94;
-        botones[6][6] = boton_95;
-        botones[6][6] = boton_96;
-        botones[6][6] = boton_97;
-        botones[7][7] = boton_98;
-        botones[7][7] = boton_99;
-        botones[7][7] = boton_100;
-        botones[7][7] = boton_101;
-        botones[7][7] = boton_102;
-        botones[7][7] = boton_103;
-        botones[7][7] = boton_104;
+        botones[7][6] = boton_91;
+        botones[8][6] = boton_92;
+        botones[9][6] = boton_93;
+        botones[10][6] = boton_94;
+        botones[11][6] = boton_95;
+        botones[12][6] = boton_96;
+        botones[13][6] = boton_97;
+        botones[0][7] = boton_98;
+        botones[1][7] = boton_99;
+        botones[2][7] = boton_100;
+        botones[3][7] = boton_101;
+        botones[4][7] = boton_102;
+        botones[5][7] = boton_103;
+        botones[6][7] = boton_104;
         botones[7][7] = boton_105;
-        botones[7][7] = boton_106;
-        botones[7][7] = boton_107;
-        botones[7][7] = boton_108;
-        botones[7][7] = boton_109;
-        botones[7][7] = boton_110;
-        botones[7][7] = boton_111;
-        botones[8][8] = boton_112;
-        botones[8][8] = boton_113;
-        botones[8][8] = boton_114;
-        botones[8][8] = boton_115;
-        botones[8][8] = boton_116;
-        botones[8][8] = boton_117;
-        botones[8][8] = boton_118;
-        botones[8][8] = boton_119;
+        botones[8][7] = boton_106;
+        botones[9][7] = boton_107;
+        botones[10][7] = boton_108;
+        botones[11][7] = boton_109;
+        botones[12][7] = boton_110;
+        botones[13][7] = boton_111;
+        botones[0][8] = boton_112;
+        botones[1][8] = boton_113;
+        botones[2][8] = boton_114;
+        botones[3][8] = boton_115;
+        botones[4][8] = boton_116;
+        botones[5][8] = boton_117;
+        botones[6][8] = boton_118;
+        botones[7][8] = boton_119;
         botones[8][8] = boton_120;
-        botones[8][8] = boton_121;
-        botones[8][8] = boton_122;
-        botones[8][8] = boton_123;
-        botones[8][8] = boton_124;
-        botones[8][8] = boton_125;
-        botones[9][9] = boton_126;
-        botones[9][9] = boton_127;
-        botones[9][9] = boton_128;
-        botones[9][9] = boton_129;
-        botones[9][9] = boton_130;
-        botones[9][9] = boton_131;
-        botones[9][9] = boton_132;
-        botones[9][9] = boton_133;
-        botones[9][9] = boton_134;
+        botones[9][8] = boton_121;
+        botones[10][8] = boton_122;
+        botones[11][8] = boton_123;
+        botones[12][8] = boton_124;
+        botones[13][8] = boton_125;
+        botones[0][9] = boton_126;
+        botones[1][9] = boton_127;
+        botones[2][9] = boton_128;
+        botones[3][9] = boton_129;
+        botones[4][9] = boton_130;
+        botones[5][9] = boton_131;
+        botones[6][9] = boton_132;
+        botones[7][9] = boton_133;
+        botones[8][9] = boton_134;
         botones[9][9] = boton_135;
-        botones[9][9] = boton_136;
-        botones[9][9] = boton_137;
-        botones[9][9] = boton_138;
-        botones[9][9] = boton_139;
-        botones[10][10] = boton_140;
-        botones[10][10] = boton_141;
-        botones[10][10] = boton_142;
-        botones[10][10] = boton_143;
-        botones[10][10] = boton_144;
-        botones[10][10] = boton_145;
-        botones[10][10] = boton_146;
-        botones[10][10] = boton_147;
-        botones[10][10] = boton_148;
-        botones[10][10] = boton_149;
+        botones[10][9] = boton_136;
+        botones[11][9] = boton_137;
+        botones[12][9] = boton_138;
+        botones[13][9] = boton_139;
+        botones[0][10] = boton_140;
+        botones[1][10] = boton_141;
+        botones[2][10] = boton_142;
+        botones[3][10] = boton_143;
+        botones[4][10] = boton_144;
+        botones[5][10] = boton_145;
+        botones[6][10] = boton_146;
+        botones[7][10] = boton_147;
+        botones[8][10] = boton_148;
+        botones[9][10] = boton_149;
         botones[10][10] = boton_150;
-        botones[10][10] = boton_151;
-        botones[10][10] = boton_152;
-        botones[10][10] = boton_153;
-        botones[11][11] = boton_154;
-        botones[11][11] = boton_155;
-        botones[11][11] = boton_156;
-        botones[11][11] = boton_157;
-        botones[11][11] = boton_158;
-        botones[11][11] = boton_159;
-        botones[11][11] = boton_160;
-        botones[11][11] = boton_161;
-        botones[11][11] = boton_162;
-        botones[11][11] = boton_163;
-        botones[11][11] = boton_164;
+        botones[11][10] = boton_151;
+        botones[12][10] = boton_152;
+        botones[13][10] = boton_153;
+        botones[0][11] = boton_154;
+        botones[1][11] = boton_155;
+        botones[2][11] = boton_156;
+        botones[3][11] = boton_157;
+        botones[4][11] = boton_158;
+        botones[5][11] = boton_159;
+        botones[6][11] = boton_160;
+        botones[7][11] = boton_161;
+        botones[8][11] = boton_162;
+        botones[9][11] = boton_163;
+        botones[10][11] = boton_164;
         botones[11][11] = boton_165;
-        botones[11][11] = boton_166;
-        botones[11][11] = boton_167;
-        botones[12][12] = boton_168;
-        botones[12][12] = boton_169;
-        botones[12][12] = boton_170;
-        botones[12][12] = boton_171;
-        botones[12][12] = boton_172;
-        botones[12][12] = boton_173;
-        botones[12][12] = boton_174;
-        botones[12][12] = boton_175;
-        botones[12][12] = boton_176;
-        botones[12][12] = boton_177;
-        botones[12][12] = boton_178;
-        botones[12][12] = boton_179;
+        botones[12][11] = boton_166;
+        botones[13][11] = boton_167;
+        botones[0][12] = boton_168;
+        botones[1][12] = boton_169;
+        botones[2][12] = boton_170;
+        botones[3][12] = boton_171;
+        botones[4][12] = boton_172;
+        botones[5][12] = boton_173;
+        botones[6][12] = boton_174;
+        botones[7][12] = boton_175;
+        botones[8][12] = boton_176;
+        botones[9][12] = boton_177;
+        botones[10][12] = boton_178;
+        botones[11][12] = boton_179;
         botones[12][12] = boton_180;
-        botones[12][12] = boton_181;
-        botones[13][13] = boton_182;
-        botones[13][13] = boton_183;
-        botones[13][13] = boton_184;
-        botones[13][13] = boton_185;
-        botones[13][13] = boton_186;
-        botones[13][13] = boton_187;
-        botones[13][13] = boton_188;
-        botones[13][13] = boton_189;
-        botones[13][13] = boton_190;
-        botones[13][13] = boton_191;
-        botones[13][13] = boton_192;
-        botones[13][13] = boton_193;
-        botones[13][13] = boton_194;
+        botones[13][12] = boton_181;
+        botones[0][13] = boton_182;
+        botones[1][13] = boton_183;
+        botones[2][13] = boton_184;
+        botones[3][13] = boton_185;
+        botones[4][13] = boton_186;
+        botones[5][13] = boton_187;
+        botones[6][13] = boton_188;
+        botones[7][13] = boton_189;
+        botones[8][13] = boton_190;
+        botones[9][13] = boton_191;
+        botones[10][13] = boton_192;
+        botones[11][13] = boton_193;
+        botones[12][13] = boton_194;
         botones[13][13] = boton_195;
+
     }
     
     /**
@@ -232,8 +233,8 @@ public class Ventana extends javax.swing.JFrame {
         initComponents();
         juego = new Partida(this);
         seleccionada = new Ficha[2];
-        seleccionada[0] = new Ficha(-1);
-        seleccionada[1] = new Ficha(-1);
+        seleccionada[0] = null;
+        seleccionada[1] = null;
         botones = new JButton[Tablero.NUM_CELDAS][Tablero.NUM_CELDAS];
         iniciarBotones();
         
@@ -245,9 +246,16 @@ public class Ventana extends javax.swing.JFrame {
                 pTablero.add(botones[i][j]);
             }
         }
+        botones[9][4].setBackground(getColorByNum(2));
+        botones[4][9].setBackground(getColorByNum(3));
         
        ponerFichasRestantesJugador(0);
        ponerFichasRestantesJugador(1);
+       
+       Ficha f = Ficha.fichaPorID(12, 5);
+       System.out.println(f);
+       //juego.tablero.tocaEsquina(4, 4, f);
+       jLabel2.setText("¡Turno del jugador "+(1)+"!");
     }
     
     public void accionBoton(int x, int y){
@@ -256,19 +264,22 @@ public class Ventana extends javax.swing.JFrame {
         Ficha sel = seleccionada[juego.turno];
         if(sel != null){
             if(juego.tablero.sePuedePoner(x,y,sel)){
-                juego.tablero.ponerFicha(x, y, sel);
-                juego.jugadores[juego.turno].fichas.remove(sel);
-                seleccionada[juego.turno] = null;
-                if(juego.turno == 0){
-                    limpiarPanel(pj1Seleccionada);
-                    limpiarPanel(pj1TodasFichas);
-                    ponerFichasRestantesJugador(0);
-                } else {
-                    limpiarPanel(pj2Seleccionada);
-                    limpiarPanel(pj2TodasFichas);
-                    ponerFichasRestantesJugador(1);
+                if(juego.validoPrimerTurno(x, y, sel) || juego.tablero.tocaEsquina(x, y, sel)){
+                    juego.tablero.ponerFicha(x, y, sel);
+                    juego.jugadores[juego.turno].fichas.remove(sel);
+                    seleccionada[juego.turno] = null;
+                    if(juego.turno == 0){
+                        limpiarPanel(pj1Seleccionada);
+                        limpiarPanel(pj1TodasFichas);
+                        ponerFichasRestantesJugador(0);
+                    } else {
+                        limpiarPanel(pj2Seleccionada);
+                        limpiarPanel(pj2TodasFichas);
+                        ponerFichasRestantesJugador(1);
+                    }
+                    juego.cambiarTurno();
+                    jLabel2.setText("¡Turno del jugador "+(juego.turno + 1)+"!");
                 }
-             //   juego.cambiarTurno();
             }
         }
     }
@@ -286,7 +297,6 @@ public class Ventana extends javax.swing.JFrame {
                         public void actionPerformed(java.awt.event.ActionEvent ae) {
                             limpiarPanel(pj1Seleccionada);
                             pj1Seleccionada.add(printFicha(f));
-                           // juego.tablero.ponerFicha(1, 1, f);
                             seleccionada[0] = f;
                         }
                     };
@@ -302,7 +312,6 @@ public class Ventana extends javax.swing.JFrame {
                         public void actionPerformed(java.awt.event.ActionEvent ae) {
                             limpiarPanel(pj2Seleccionada);
                             pj2Seleccionada.add(printFicha(f));
-                           // juego.tablero.ponerFicha(1, 1, f);
                             seleccionada[1] = f;
                         }
                     };
@@ -349,7 +358,8 @@ public class Ventana extends javax.swing.JFrame {
             case -1: return Color.WHITE;
             case 0: return Color.ORANGE;
             case 1: return Color.BLUE;
-            case 2: return Color.PINK;
+            case 2: return Color.YELLOW;
+            case 3: return Color.CYAN;
             default: return Color.DARK_GRAY;
         }
     }
@@ -369,6 +379,8 @@ public class Ventana extends javax.swing.JFrame {
         pj1TodasFichas = new javax.swing.JPanel();
         bDarVuelta = new javax.swing.JButton();
         bGirar = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        bDarVuelta2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         pTablero = new javax.swing.JPanel();
         boton_0 = new javax.swing.JButton();
@@ -573,6 +585,8 @@ public class Ventana extends javax.swing.JFrame {
         pj2TodasFichas = new javax.swing.JPanel();
         bDarVuelta1 = new javax.swing.JButton();
         bGirar1 = new javax.swing.JButton();
+        bDarVuelta3 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("BlockUs Duo");
@@ -598,6 +612,15 @@ public class Ventana extends javax.swing.JFrame {
             }
         });
 
+        jLabel3.setText("X");
+
+        bDarVuelta2.setText("Voltearla2");
+        bDarVuelta2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bDarVuelta2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pJugador0Layout = new javax.swing.GroupLayout(pJugador0);
         pJugador0.setLayout(pJugador0Layout);
         pJugador0Layout.setHorizontalGroup(
@@ -606,18 +629,28 @@ public class Ventana extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(pJugador0Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pj1Seleccionada, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bDarVuelta)
-                    .addComponent(bGirar))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(bGirar)
+                    .addGroup(pJugador0Layout.createSequentialGroup()
+                        .addComponent(bDarVuelta)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(bDarVuelta2)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addContainerGap())
             .addGroup(pJugador0Layout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 6, Short.MAX_VALUE))
+                .addGap(0, 32, Short.MAX_VALUE))
         );
         pJugador0Layout.setVerticalGroup(
             pJugador0Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pJugador0Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(bDarVuelta)
+                .addGroup(pJugador0Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pJugador0Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(pJugador0Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(bDarVuelta)
+                            .addComponent(bDarVuelta2)))
+                    .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(bGirar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -2025,6 +2058,13 @@ public class Ventana extends javax.swing.JFrame {
             }
         });
 
+        bDarVuelta3.setText("Voltearla2");
+        bDarVuelta3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bDarVuelta3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pJugador2Layout = new javax.swing.GroupLayout(pJugador2);
         pJugador2.setLayout(pJugador2Layout);
         pJugador2Layout.setHorizontalGroup(
@@ -2033,9 +2073,12 @@ public class Ventana extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(pJugador2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pj2Seleccionada, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bDarVuelta1)
+                    .addGroup(pJugador2Layout.createSequentialGroup()
+                        .addComponent(bDarVuelta1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(bDarVuelta3))
                     .addComponent(bGirar1))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(143, Short.MAX_VALUE))
             .addGroup(pJugador2Layout.createSequentialGroup()
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 6, Short.MAX_VALUE))
@@ -2044,7 +2087,9 @@ public class Ventana extends javax.swing.JFrame {
             pJugador2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pJugador2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(bDarVuelta1)
+                .addGroup(pJugador2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bDarVuelta1)
+                    .addComponent(bDarVuelta3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(bGirar1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -2054,6 +2099,9 @@ public class Ventana extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jLabel2.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        jLabel2.setText("Y ------------------>");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -2061,20 +2109,24 @@ public class Ventana extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
+                    .addComponent(pJugador0, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(pJugador0, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(pTablero, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(pJugador2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(pJugador2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pJugador0, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -2087,16 +2139,45 @@ public class Ventana extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    public void darVuelta(int turno){
+        seleccionada[turno].voltear();
+        if(turno == 0){
+            limpiarPanel(pj1Seleccionada);
+            pj1Seleccionada.add(printFicha(seleccionada[0]));
+        }else{
+            limpiarPanel(pj2Seleccionada);
+            pj2Seleccionada.add(printFicha(seleccionada[1]));
+        }
+    }
+    
+    public void darVuelta2(int turno){
+        seleccionada[turno].voltear2();
+        if(turno == 0){
+            limpiarPanel(pj1Seleccionada);
+            pj1Seleccionada.add(printFicha(seleccionada[0]));
+        }else{
+            limpiarPanel(pj2Seleccionada);
+            pj2Seleccionada.add(printFicha(seleccionada[1]));
+        }
+    }
+    
+    public void girar(int turno){
+        seleccionada[turno].girar_horario();
+        if(turno == 0){
+            limpiarPanel(pj1Seleccionada);
+            pj1Seleccionada.add(printFicha(seleccionada[0]));
+        }else{
+            limpiarPanel(pj2Seleccionada);
+            pj2Seleccionada.add(printFicha(seleccionada[1]));
+        }
+    }
+    
     private void bDarVueltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDarVueltaActionPerformed
-        seleccionada[0].voltear();
-        limpiarPanel(pj1Seleccionada);
-        pj1Seleccionada.add(printFicha(seleccionada[0]));
+        darVuelta(0);
     }//GEN-LAST:event_bDarVueltaActionPerformed
 
     private void bGirarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGirarActionPerformed
-        seleccionada[0].girar_horario();
-        limpiarPanel(pj1Seleccionada);
-        pj1Seleccionada.add(printFicha(seleccionada[0]));    
+        girar(0);
     }//GEN-LAST:event_bGirarActionPerformed
 
     private void boton_0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_0ActionPerformed
@@ -2104,7 +2185,7 @@ public class Ventana extends javax.swing.JFrame {
     }//GEN-LAST:event_boton_0ActionPerformed
 
     private void boton_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_1ActionPerformed
-        accionBoton(0, 1);
+        accionBoton(1, 0);
     }//GEN-LAST:event_boton_1ActionPerformed
 
     private void boton_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_2ActionPerformed
@@ -2156,7 +2237,7 @@ public class Ventana extends javax.swing.JFrame {
     }//GEN-LAST:event_boton_13ActionPerformed
 
     private void boton_14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_14ActionPerformed
-        accionBoton(1, 0);
+        accionBoton(0, 1);
     }//GEN-LAST:event_boton_14ActionPerformed
 
     private void boton_15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_15ActionPerformed
@@ -2884,12 +2965,20 @@ public class Ventana extends javax.swing.JFrame {
     }//GEN-LAST:event_boton_195ActionPerformed
 
     private void bDarVuelta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDarVuelta1ActionPerformed
-        // TODO add your handling code here:
+        darVuelta(1);
     }//GEN-LAST:event_bDarVuelta1ActionPerformed
 
     private void bGirar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGirar1ActionPerformed
-        // TODO add your handling code here:
+        girar(1);
     }//GEN-LAST:event_bGirar1ActionPerformed
+
+    private void bDarVuelta2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDarVuelta2ActionPerformed
+        darVuelta2(0);
+    }//GEN-LAST:event_bDarVuelta2ActionPerformed
+
+    private void bDarVuelta3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDarVuelta3ActionPerformed
+        darVuelta2(1);
+    }//GEN-LAST:event_bDarVuelta3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2929,6 +3018,8 @@ public class Ventana extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bDarVuelta;
     private javax.swing.JButton bDarVuelta1;
+    private javax.swing.JButton bDarVuelta2;
+    private javax.swing.JButton bDarVuelta3;
     private javax.swing.JButton bGirar;
     private javax.swing.JButton bGirar1;
     private javax.swing.JButton boton_0;
@@ -3128,6 +3219,8 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JButton boton_98;
     private javax.swing.JButton boton_99;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPanel pJugador0;
