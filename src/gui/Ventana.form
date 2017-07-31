@@ -27,19 +27,45 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="pJugador0" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="restantesJ1" pref="291" max="32767" attributes="0"/>
+                              <EmptySpace min="-2" pref="196" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="-2" pref="263" max="-2" attributes="0"/>
+                              <Component id="panelSeleccionadaJ0" min="-2" pref="208" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                              <Component id="pj1TodasFichas" min="-2" pref="361" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="pTablero" min="-2" pref="367" max="-2" attributes="0"/>
+                          <Component id="jLabel2" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="restantesJ2" min="-2" pref="500" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="pj2Seleccionada" min="-2" pref="111" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="bDarVuelta1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="bDarVuelta3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="bGirar1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Component id="pj2TodasFichas" alignment="0" min="-2" pref="489" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
                   <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="pTablero" min="-2" pref="367" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="pJugador2" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="jLabel2" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -47,170 +73,44 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
+              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="restantesJ2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="restantesJ1" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="pJugador0" max="32767" attributes="0"/>
-                  <Component id="pTablero" alignment="0" min="-2" pref="367" max="-2" attributes="0"/>
-                  <Component id="pJugador2" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="pj2Seleccionada" min="-2" pref="111" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="bDarVuelta1" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="bDarVuelta3" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="bGirar1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="pj2TodasFichas" max="32767" attributes="0"/>
+                      </Group>
+                      <Component id="pTablero" alignment="0" min="-2" pref="367" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Component id="panelSeleccionadaJ0" min="-2" pref="116" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                      <Component id="pj1TodasFichas" min="-2" pref="217" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace pref="15" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JPanel" name="pJugador0">
-
-      <Layout>
-        <DimensionLayout dim="0">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="pj1Seleccionada" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
-                      <Component id="bGirar" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="bDarVuelta" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="bDarVuelta2" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="0" attributes="0">
-                  <Component id="jScrollPane1" min="-2" pref="309" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="32" max="32767" attributes="0"/>
-              </Group>
-          </Group>
-        </DimensionLayout>
-        <DimensionLayout dim="1">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="bDarVuelta" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="bDarVuelta2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="bGirar" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="pj1Seleccionada" min="-2" pref="160" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" min="-2" pref="143" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-              </Group>
-          </Group>
-        </DimensionLayout>
-      </Layout>
-      <SubComponents>
-        <Container class="javax.swing.JPanel" name="pj1Seleccionada">
-
-          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
-        </Container>
-        <Container class="javax.swing.JScrollPane" name="jScrollPane1">
-
-          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-          <SubComponents>
-            <Container class="javax.swing.JPanel" name="pj1TodasFichas">
-              <LayoutCode>
-                <CodeStatement>
-                  <CodeExpression id="1_flowLayout1">
-                    <CodeVariable name="flowLayout1" type="4096" declaredType="java.awt.FlowLayout"/>
-                    <ExpressionOrigin>
-                      <ExpressionProvider type="CodeConstructor">
-                        <CodeConstructor class="java.awt.FlowLayout" parameterTypes="int"/>
-                      </ExpressionProvider>
-                      <Parameters>
-                        <CodeExpression id="2">
-                          <ExpressionOrigin>
-                            <Value type="int" value="0"/>
-                          </ExpressionOrigin>
-                        </CodeExpression>
-                      </Parameters>
-                    </ExpressionOrigin>
-                  </CodeExpression>
-                  <StatementProvider type="CodeExpression">
-                    <CodeExpression id="1_flowLayout1"/>
-                  </StatementProvider>
-                  <Parameters>
-                    <CodeExpression id="2"/>
-                  </Parameters>
-                </CodeStatement>
-                <CodeStatement>
-                  <CodeExpression id="1_flowLayout1"/>
-                  <StatementProvider type="CodeMethod">
-                    <CodeMethod name="setAlignOnBaseline" class="java.awt.FlowLayout" parameterTypes="boolean"/>
-                  </StatementProvider>
-                  <Parameters>
-                    <CodeExpression id="3">
-                      <ExpressionOrigin>
-                        <Value type="boolean" value="true"/>
-                      </ExpressionOrigin>
-                    </CodeExpression>
-                  </Parameters>
-                </CodeStatement>
-                <CodeStatement>
-                  <CodeExpression id="4_pj1TodasFichas">
-                    <CodeVariable name="pj1TodasFichas" type="8194" declaredType="javax.swing.JPanel"/>
-                    <ExpressionOrigin>
-                      <ExpressionProvider type="ComponentRef">
-                        <ComponentRef name="pj1TodasFichas"/>
-                      </ExpressionProvider>
-                    </ExpressionOrigin>
-                  </CodeExpression>
-                  <StatementProvider type="CodeMethod">
-                    <CodeMethod name="setLayout" class="java.awt.Container" parameterTypes="java.awt.LayoutManager"/>
-                  </StatementProvider>
-                  <Parameters>
-                    <CodeExpression id="1_flowLayout1"/>
-                  </Parameters>
-                </CodeStatement>
-              </LayoutCode>
-            </Container>
-          </SubComponents>
-        </Container>
-        <Component class="javax.swing.JButton" name="bDarVuelta">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Voltearla"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bDarVueltaActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="bGirar">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Girar (H.)"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bGirarActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel3">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="X"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="bDarVuelta2">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Voltearla2"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bDarVuelta2ActionPerformed"/>
-          </Events>
-        </Component>
-      </SubComponents>
-    </Container>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -1208,142 +1108,6 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="pJugador2">
-
-      <Layout>
-        <DimensionLayout dim="0">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="pj2Seleccionada" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="bDarVuelta1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="bDarVuelta3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Component id="bGirar1" alignment="0" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace pref="143" max="32767" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="0" attributes="0">
-                  <Component id="jScrollPane2" min="-2" pref="309" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="6" max="32767" attributes="0"/>
-              </Group>
-          </Group>
-        </DimensionLayout>
-        <DimensionLayout dim="1">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="bDarVuelta1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="bDarVuelta3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="bGirar1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="pj2Seleccionada" min="-2" pref="160" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jScrollPane2" min="-2" pref="143" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-              </Group>
-          </Group>
-        </DimensionLayout>
-      </Layout>
-      <SubComponents>
-        <Container class="javax.swing.JPanel" name="pj2Seleccionada">
-
-          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
-        </Container>
-        <Container class="javax.swing.JScrollPane" name="jScrollPane2">
-
-          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-          <SubComponents>
-            <Container class="javax.swing.JPanel" name="pj2TodasFichas">
-              <LayoutCode>
-                <CodeStatement>
-                  <CodeExpression id="5_flowLayout2">
-                    <CodeVariable name="flowLayout2" type="4096" declaredType="java.awt.FlowLayout"/>
-                    <ExpressionOrigin>
-                      <ExpressionProvider type="CodeConstructor">
-                        <CodeConstructor class="java.awt.FlowLayout" parameterTypes="int"/>
-                      </ExpressionProvider>
-                      <Parameters>
-                        <CodeExpression id="6">
-                          <ExpressionOrigin>
-                            <Value type="int" value="0"/>
-                          </ExpressionOrigin>
-                        </CodeExpression>
-                      </Parameters>
-                    </ExpressionOrigin>
-                  </CodeExpression>
-                  <StatementProvider type="CodeExpression">
-                    <CodeExpression id="5_flowLayout2"/>
-                  </StatementProvider>
-                  <Parameters>
-                    <CodeExpression id="6"/>
-                  </Parameters>
-                </CodeStatement>
-                <CodeStatement>
-                  <CodeExpression id="5_flowLayout2"/>
-                  <StatementProvider type="CodeMethod">
-                    <CodeMethod name="setAlignOnBaseline" class="java.awt.FlowLayout" parameterTypes="boolean"/>
-                  </StatementProvider>
-                  <Parameters>
-                    <CodeExpression id="7">
-                      <ExpressionOrigin>
-                        <Value type="boolean" value="true"/>
-                      </ExpressionOrigin>
-                    </CodeExpression>
-                  </Parameters>
-                </CodeStatement>
-                <CodeStatement>
-                  <CodeExpression id="8_pj2TodasFichas">
-                    <CodeVariable name="pj2TodasFichas" type="8194" declaredType="javax.swing.JPanel"/>
-                    <ExpressionOrigin>
-                      <ExpressionProvider type="ComponentRef">
-                        <ComponentRef name="pj2TodasFichas"/>
-                      </ExpressionProvider>
-                    </ExpressionOrigin>
-                  </CodeExpression>
-                  <StatementProvider type="CodeMethod">
-                    <CodeMethod name="setLayout" class="java.awt.Container" parameterTypes="java.awt.LayoutManager"/>
-                  </StatementProvider>
-                  <Parameters>
-                    <CodeExpression id="5_flowLayout2"/>
-                  </Parameters>
-                </CodeStatement>
-              </LayoutCode>
-            </Container>
-          </SubComponents>
-        </Container>
-        <Component class="javax.swing.JButton" name="bDarVuelta1">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Voltearla"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bDarVuelta1ActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="bGirar1">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Girar (H.)"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bGirar1ActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="bDarVuelta3">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Voltearla2"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bDarVuelta3ActionPerformed"/>
-          </Events>
-        </Component>
-      </SubComponents>
-    </Container>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -1352,5 +1116,116 @@
         <Property name="text" type="java.lang.String" value="Y ------------------&gt;"/>
       </Properties>
     </Component>
+    <Component class="javax.swing.JLabel" name="restantesJ2">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Ubuntu" size="18" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Y ------------------&gt;"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="restantesJ1">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Ubuntu" size="18" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Y ------------------&gt;"/>
+      </Properties>
+    </Component>
+    <Container class="javax.swing.JPanel" name="pj1TodasFichas">
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
+        <Property name="columns" type="int" value="5"/>
+        <Property name="rows" type="int" value="5"/>
+      </Layout>
+    </Container>
+    <Container class="javax.swing.JPanel" name="pj2Seleccionada">
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
+    </Container>
+    <Component class="javax.swing.JButton" name="bDarVuelta1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Voltearla"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bDarVuelta1ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="bDarVuelta3">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Voltearla2"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bDarVuelta3ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="bGirar1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Girar (H.)"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bGirar1ActionPerformed"/>
+      </Events>
+    </Component>
+    <Container class="javax.swing.JPanel" name="pj2TodasFichas">
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
+        <Property name="columns" type="int" value="6"/>
+        <Property name="rows" type="int" value="4"/>
+      </Layout>
+    </Container>
+    <Container class="javax.swing.JPanel" name="panelSeleccionadaJ0">
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
+      <SubComponents>
+        <Container class="javax.swing.JPanel" name="panelBotonesJ0">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+              <BorderConstraints direction="Before"/>
+            </Constraint>
+          </Constraints>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
+            <Property name="columns" type="int" value="1"/>
+            <Property name="rows" type="int" value="3"/>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JButton" name="bDarVuelta">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Voltearla"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bDarVueltaActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="bDarVuelta2">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Voltearla2"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bDarVuelta2ActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="bGirar">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Girar (H.)"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bGirarActionPerformed"/>
+              </Events>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="pj1Seleccionada">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+              <BorderConstraints direction="Center"/>
+            </Constraint>
+          </Constraints>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
+        </Container>
+      </SubComponents>
+    </Container>
   </SubComponents>
 </Form>

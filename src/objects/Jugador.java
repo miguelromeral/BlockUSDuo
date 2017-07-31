@@ -20,7 +20,18 @@ public class Jugador {
     public void cambiarTurno(){
         turno = !turno;
     }
-    public void usarFicha(Ficha f){
-        fichas.remove(f);
+    
+    public int restantes(){
+        int rest = 0;
+        for(Ficha f : fichas){
+            for(int i=0; i<f.x; i++){
+                for(int j=0; j<f.y; j++){
+                    if(f.celda[i][j].color != -1){
+                        rest++;
+                    }
+                }
+            }
+        }
+        return rest;
     }
 }

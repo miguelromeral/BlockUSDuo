@@ -39,15 +39,22 @@ public class Partida {
             case 0: 
                 for(int i=0; i<f.x; i++){
                     for(int j=0; j<f.y; j++){
+         //               System.out.println("Mirando ("+i+","+j+") --> ("+(i+x)+","+(j+y)+")");
                         if(i+x == 9 && j+y == 4 && f.celda[i][j].color != -1 && f.celda[i][j].esquina){
                             return true;
-                        }else{
-                            return false;
                         }
                     }
                 }
                 break;
             case 1:
+                for(int i=0; i<f.x; i++){
+                    for(int j=0; j<f.y; j++){
+           //             System.out.println("Mirando ("+i+","+j+") --> ("+(i+x)+","+(j+y)+")");
+                        if(i+x == 4 && j+y == 9 && f.celda[i][j].color != -1 && f.celda[i][j].esquina){
+                            return true;
+                        }
+                    }
+                }
                 break;
             default: return false;
         }

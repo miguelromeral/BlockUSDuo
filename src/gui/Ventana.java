@@ -252,15 +252,17 @@ public class Ventana extends javax.swing.JFrame {
        ponerFichasRestantesJugador(0);
        ponerFichasRestantesJugador(1);
        
-       Ficha f = Ficha.fichaPorID(12, 5);
-       System.out.println(f);
        //juego.tablero.tocaEsquina(4, 4, f);
        jLabel2.setText("¡Turno del jugador "+(1)+"!");
+        restantesJ1.setText("Te quedan "+juego.jugadores[0].restantes()+" bloques.");
+        restantesJ2.setText("Te quedan "+juego.jugadores[1].restantes()+" bloques.");
+        
+       
     }
     
     public void accionBoton(int x, int y){
-        System.out.println("Botón: ("+x+","+y+") --> "+juego.tablero.celda[x][y].x+","+juego.tablero.celda[x][y].y+
-                " ("+juego.tablero.celda[x][y].color+")");
+      //  System.out.println("Botón: ("+x+","+y+") --> "+juego.tablero.celda[x][y].x+","+juego.tablero.celda[x][y].y+
+      //          " ("+juego.tablero.celda[x][y].color+")");
         Ficha sel = seleccionada[juego.turno];
         if(sel != null){
             if(juego.tablero.sePuedePoner(x,y,sel)){
@@ -272,10 +274,12 @@ public class Ventana extends javax.swing.JFrame {
                         limpiarPanel(pj1Seleccionada);
                         limpiarPanel(pj1TodasFichas);
                         ponerFichasRestantesJugador(0);
+                        restantesJ1.setText("Te quedan "+juego.jugadores[0].restantes()+" bloques.");
                     } else {
                         limpiarPanel(pj2Seleccionada);
                         limpiarPanel(pj2TodasFichas);
                         ponerFichasRestantesJugador(1);
+                        restantesJ2.setText("Te quedan "+juego.jugadores[1].restantes()+" bloques.");
                     }
                     juego.cambiarTurno();
                     jLabel2.setText("¡Turno del jugador "+(juego.turno + 1)+"!");
@@ -373,14 +377,6 @@ public class Ventana extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        pJugador0 = new javax.swing.JPanel();
-        pj1Seleccionada = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        pj1TodasFichas = new javax.swing.JPanel();
-        bDarVuelta = new javax.swing.JButton();
-        bGirar = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        bDarVuelta2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         pTablero = new javax.swing.JPanel();
         boton_0 = new javax.swing.JButton();
@@ -579,86 +575,24 @@ public class Ventana extends javax.swing.JFrame {
         boton_193 = new javax.swing.JButton();
         boton_194 = new javax.swing.JButton();
         boton_195 = new javax.swing.JButton();
-        pJugador2 = new javax.swing.JPanel();
-        pj2Seleccionada = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        pj2TodasFichas = new javax.swing.JPanel();
-        bDarVuelta1 = new javax.swing.JButton();
-        bGirar1 = new javax.swing.JButton();
-        bDarVuelta3 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        restantesJ2 = new javax.swing.JLabel();
+        restantesJ1 = new javax.swing.JLabel();
+        pj1TodasFichas = new javax.swing.JPanel();
+        pj2Seleccionada = new javax.swing.JPanel();
+        bDarVuelta1 = new javax.swing.JButton();
+        bDarVuelta3 = new javax.swing.JButton();
+        bGirar1 = new javax.swing.JButton();
+        pj2TodasFichas = new javax.swing.JPanel();
+        panelSeleccionadaJ0 = new javax.swing.JPanel();
+        panelBotonesJ0 = new javax.swing.JPanel();
+        bDarVuelta = new javax.swing.JButton();
+        bDarVuelta2 = new javax.swing.JButton();
+        bGirar = new javax.swing.JButton();
+        pj1Seleccionada = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("BlockUs Duo");
-
-        pj1Seleccionada.setLayout(new java.awt.BorderLayout());
-
-        java.awt.FlowLayout flowLayout1 = new java.awt.FlowLayout(java.awt.FlowLayout.LEFT);
-        flowLayout1.setAlignOnBaseline(true);
-        pj1TodasFichas.setLayout(flowLayout1);
-        jScrollPane1.setViewportView(pj1TodasFichas);
-
-        bDarVuelta.setText("Voltearla");
-        bDarVuelta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bDarVueltaActionPerformed(evt);
-            }
-        });
-
-        bGirar.setText("Girar (H.)");
-        bGirar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bGirarActionPerformed(evt);
-            }
-        });
-
-        jLabel3.setText("X");
-
-        bDarVuelta2.setText("Voltearla2");
-        bDarVuelta2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bDarVuelta2ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout pJugador0Layout = new javax.swing.GroupLayout(pJugador0);
-        pJugador0.setLayout(pJugador0Layout);
-        pJugador0Layout.setHorizontalGroup(
-            pJugador0Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pJugador0Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pJugador0Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pj1Seleccionada, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bGirar)
-                    .addGroup(pJugador0Layout.createSequentialGroup()
-                        .addComponent(bDarVuelta)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(bDarVuelta2)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel3)
-                .addContainerGap())
-            .addGroup(pJugador0Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 32, Short.MAX_VALUE))
-        );
-        pJugador0Layout.setVerticalGroup(
-            pJugador0Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pJugador0Layout.createSequentialGroup()
-                .addGroup(pJugador0Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pJugador0Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(pJugador0Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(bDarVuelta)
-                            .addComponent(bDarVuelta2)))
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bGirar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pj1Seleccionada, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
 
         jLabel1.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
         jLabel1.setText("BlockUs Duo");
@@ -2037,24 +1971,23 @@ public class Ventana extends javax.swing.JFrame {
         });
         pTablero.add(boton_195);
 
-        pj2Seleccionada.setLayout(new java.awt.BorderLayout());
+        jLabel2.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        jLabel2.setText("Y ------------------>");
 
-        java.awt.FlowLayout flowLayout2 = new java.awt.FlowLayout(java.awt.FlowLayout.LEFT);
-        flowLayout2.setAlignOnBaseline(true);
-        pj2TodasFichas.setLayout(flowLayout2);
-        jScrollPane2.setViewportView(pj2TodasFichas);
+        restantesJ2.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        restantesJ2.setText("Y ------------------>");
+
+        restantesJ1.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        restantesJ1.setText("Y ------------------>");
+
+        pj1TodasFichas.setLayout(new java.awt.GridLayout(5, 5));
+
+        pj2Seleccionada.setLayout(new java.awt.BorderLayout());
 
         bDarVuelta1.setText("Voltearla");
         bDarVuelta1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bDarVuelta1ActionPerformed(evt);
-            }
-        });
-
-        bGirar1.setText("Girar (H.)");
-        bGirar1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bGirar1ActionPerformed(evt);
             }
         });
 
@@ -2065,42 +1998,47 @@ public class Ventana extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout pJugador2Layout = new javax.swing.GroupLayout(pJugador2);
-        pJugador2.setLayout(pJugador2Layout);
-        pJugador2Layout.setHorizontalGroup(
-            pJugador2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pJugador2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pJugador2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pj2Seleccionada, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(pJugador2Layout.createSequentialGroup()
-                        .addComponent(bDarVuelta1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(bDarVuelta3))
-                    .addComponent(bGirar1))
-                .addContainerGap(143, Short.MAX_VALUE))
-            .addGroup(pJugador2Layout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 6, Short.MAX_VALUE))
-        );
-        pJugador2Layout.setVerticalGroup(
-            pJugador2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pJugador2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pJugador2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bDarVuelta1)
-                    .addComponent(bDarVuelta3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bGirar1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pj2Seleccionada, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        bGirar1.setText("Girar (H.)");
+        bGirar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bGirar1ActionPerformed(evt);
+            }
+        });
 
-        jLabel2.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
-        jLabel2.setText("Y ------------------>");
+        pj2TodasFichas.setLayout(new java.awt.GridLayout(4, 6));
+
+        panelSeleccionadaJ0.setLayout(new java.awt.BorderLayout());
+
+        panelBotonesJ0.setLayout(new java.awt.GridLayout(3, 1));
+
+        bDarVuelta.setText("Voltearla");
+        bDarVuelta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bDarVueltaActionPerformed(evt);
+            }
+        });
+        panelBotonesJ0.add(bDarVuelta);
+
+        bDarVuelta2.setText("Voltearla2");
+        bDarVuelta2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bDarVuelta2ActionPerformed(evt);
+            }
+        });
+        panelBotonesJ0.add(bDarVuelta2);
+
+        bGirar.setText("Girar (H.)");
+        bGirar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bGirarActionPerformed(evt);
+            }
+        });
+        panelBotonesJ0.add(bGirar);
+
+        panelSeleccionadaJ0.add(panelBotonesJ0, java.awt.BorderLayout.LINE_START);
+
+        pj1Seleccionada.setLayout(new java.awt.BorderLayout());
+        panelSeleccionadaJ0.add(pj1Seleccionada, java.awt.BorderLayout.CENTER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -2109,30 +2047,66 @@ public class Ventana extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pJugador0, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(pTablero, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(restantesJ1, javax.swing.GroupLayout.DEFAULT_SIZE, 291, Short.MAX_VALUE)
+                                .addGap(196, 196, 196))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(263, 263, 263)
+                                .addComponent(panelSeleccionadaJ0, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(9, 9, 9)
+                                .addComponent(pj1TodasFichas, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(pTablero, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(pJugador2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(restantesJ2, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(pj2Seleccionada, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(bDarVuelta1)
+                                    .addComponent(bDarVuelta3)
+                                    .addComponent(bGirar1)))
+                            .addComponent(pj2TodasFichas, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel1))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
+                    .addComponent(jLabel2)
+                    .addComponent(restantesJ2)
+                    .addComponent(restantesJ1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pJugador0, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pTablero, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pJugador2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(pj2Seleccionada, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(bDarVuelta1)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(bDarVuelta3)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(bGirar1)))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(pj2TodasFichas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(pTablero, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(panelSeleccionadaJ0, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(5, 5, 5)
+                        .addComponent(pj1TodasFichas, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         pack();
@@ -2144,10 +2118,13 @@ public class Ventana extends javax.swing.JFrame {
         if(turno == 0){
             limpiarPanel(pj1Seleccionada);
             pj1Seleccionada.add(printFicha(seleccionada[0]));
+            limpiarPanel(pj1TodasFichas);
         }else{
             limpiarPanel(pj2Seleccionada);
             pj2Seleccionada.add(printFicha(seleccionada[1]));
+            limpiarPanel(pj2TodasFichas);
         }
+       ponerFichasRestantesJugador(turno);
     }
     
     public void darVuelta2(int turno){
@@ -2155,10 +2132,13 @@ public class Ventana extends javax.swing.JFrame {
         if(turno == 0){
             limpiarPanel(pj1Seleccionada);
             pj1Seleccionada.add(printFicha(seleccionada[0]));
+            limpiarPanel(pj1TodasFichas);
         }else{
             limpiarPanel(pj2Seleccionada);
             pj2Seleccionada.add(printFicha(seleccionada[1]));
+            limpiarPanel(pj2TodasFichas);
         }
+       ponerFichasRestantesJugador(turno);
     }
     
     public void girar(int turno){
@@ -2166,10 +2146,13 @@ public class Ventana extends javax.swing.JFrame {
         if(turno == 0){
             limpiarPanel(pj1Seleccionada);
             pj1Seleccionada.add(printFicha(seleccionada[0]));
+            limpiarPanel(pj1TodasFichas);
         }else{
             limpiarPanel(pj2Seleccionada);
             pj2Seleccionada.add(printFicha(seleccionada[1]));
+            limpiarPanel(pj2TodasFichas);
         }
+       ponerFichasRestantesJugador(turno);
     }
     
     private void bDarVueltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDarVueltaActionPerformed
@@ -3220,15 +3203,14 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JButton boton_99;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JPanel pJugador0;
-    private javax.swing.JPanel pJugador2;
     private javax.swing.JPanel pTablero;
+    private javax.swing.JPanel panelBotonesJ0;
+    private javax.swing.JPanel panelSeleccionadaJ0;
     private javax.swing.JPanel pj1Seleccionada;
     private javax.swing.JPanel pj1TodasFichas;
     private javax.swing.JPanel pj2Seleccionada;
     private javax.swing.JPanel pj2TodasFichas;
+    private javax.swing.JLabel restantesJ1;
+    private javax.swing.JLabel restantesJ2;
     // End of variables declaration//GEN-END:variables
 }

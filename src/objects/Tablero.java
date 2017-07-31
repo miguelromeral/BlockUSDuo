@@ -2,7 +2,9 @@
 package objects;
 
 import gui.Ventana;
+import java.awt.Color;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  *
@@ -25,14 +27,24 @@ public class Tablero {
     }
     
     public void ponerFicha(int x, int y, Ficha f){
-        System.out.println("Estoy en "+x+","+y+" y la ficha tiene dimensiones: "+f.x+","+f.y);
         if(x + f.x <= NUM_CELDAS && y + f.y <= NUM_CELDAS){
             for(int i=x; i<x+f.x; i++){
                 for(int j=y; j<y+f.y; j++){
                     if(f.celda[i-x][j-y].color != -1){
-                        System.out.println("Pinto "+(i-x)+","+(j-y));
                         celda[i][j].pintar(f.color);
                         ven.botones[i][j].setBackground(Ventana.getColorByNum(f.color));
+                    }
+                }
+            }
+        }
+    }
+    public void quitarFicha(int x, int y, Ficha f){
+        if(x + f.x <= NUM_CELDAS && y + f.y <= NUM_CELDAS){
+            for(int i=x; i<x+f.x; i++){
+                for(int j=y; j<y+f.y; j++){
+                    if(f.celda[i-x][j-y].color == f.color){
+                        celda[i][j].pintar(-1);
+                        ven.botones[i][j].setBackground(Ventana.getColorByNum(-1));
                     }
                 }
             }
@@ -42,15 +54,19 @@ public class Tablero {
     //Indica si no hay fichas ya en el tablero en esa posición
     public boolean sePuedePoner(int x, int y, Ficha f){
         if(x + f.x <= NUM_CELDAS && y + f.y <= NUM_CELDAS){
-          //  System.out.println(f);
             for(int i=x; i<x+f.x; i++){
                 for(int j=y; j<y+f.y; j++){
                     if(f.celda[i-x][j-y].color != -1){
                         if(celda[i][j].color != -1){
-                         //   System.out.println("No se puede por ("+i+","+j+")");
                             return false;
+                        }else{
+                            if(i > 0 && celda[i - 1][j].color == f.color ||
+                                    i < NUM_CELDAS - 1 && celda[i + 1][j].color == f.color || 
+                                    j > 0 && celda[i][j-1].color == f.color || 
+                                    j < NUM_CELDAS - 1 && celda[i][j+1].color == f.color){
+                                return false;
+                            }
                         }
-                    //    System.out.println("Sí ("+i+","+j+")");
                     }
                 }
             }
@@ -59,7 +75,7 @@ public class Tablero {
     }
     
     public boolean tocaEsquina(int x, int y, Ficha f){
-        /*ArrayList<Celda> esquinas = new ArrayList<>();
+        ArrayList<Celda> esquinas = new ArrayList<>();
         for(int i=0; i<f.x; i++){
             for(int j=0; j<f.y; j++){
                 if(f.celda[i][j].esquina){
@@ -70,9 +86,49 @@ public class Tablero {
         if(esquinas.isEmpty()){
             return false;
         }
-        System.out.println(esquinas);
-        return true;*/
-        return false;
+        ArrayList<Celda> esquinas_de_esquinas = new ArrayList<>();
+        for(Celda cel : esquinas){
+            if(cel.x + x> 0 && cel.y + y> 0){
+                esquinas_de_esquinas.add(new Celda(cel.x +x - 1, cel.y+y - 1));
+            }
+            if(cel.x + x> 0 && cel.y + y < NUM_CELDAS-1){
+                esquinas_de_esquinas.add(new Celda(cel.x+x - 1, cel.y+y + 1));
+            }
+            if(cel.x + x < NUM_CELDAS - 1 && cel.y  + y> 0){
+                esquinas_de_esquinas.add(new Celda(cel.x + x+  1, cel.y+y - 1));
+            }
+            if(cel.x + x< NUM_CELDAS - 1 && cel.y + y< NUM_CELDAS - 1){
+                esquinas_de_esquinas.add(new Celda(cel.x +x+ 1, cel.y+y + 1));
+            }
+        }
+        //Todo bien hasta aquí
+        
+        
+        int color = f.color;
+        ponerFicha(x, y, f);
+        ArrayList<Celda> celdas_filtradas = new ArrayList<>();
+        for(Celda c : esquinas_de_esquinas){
+            if(celda[c.x][c.y].color != f.color && (
+                    c.x > 0 && celda[c.x - 1][c.y].color == f.color ||
+                    c.x < NUM_CELDAS - 1 && celda[c.x + 1][c.y].color == f.color || 
+                    c.y > 0 && celda[c.x][c.y-1].color == f.color || 
+                    c.y < NUM_CELDAS - 1&& celda[c.x][c.y+1].color == f.color)){
+
+            }else
+                celdas_filtradas.add(c);
+        }
+       /* for(Celda c : celdas_filtradas){
+            ven.botones[c.x][c.y].setBackground(Color.BLACK);
+        }*/
+        int coinc = 0;
+        quitarFicha(x, y, f);
+        for(Celda c : celdas_filtradas){
+            if(celda[c.x][c.y].color == f.color){
+                System.out.println("C: "+c.x+","+c.y);
+                coinc++;
+            }
+        }
+        return coinc > 0;
     }
     
 }
