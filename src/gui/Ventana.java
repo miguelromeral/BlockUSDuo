@@ -7,10 +7,13 @@ package gui;
 
 import java.awt.Color;
 import java.awt.GridLayout;
-import javafx.event.ActionEvent;
+import static java.lang.Thread.sleep;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import objects.Ficha;
 import objects.Partida;
@@ -25,6 +28,8 @@ public class Ventana extends javax.swing.JFrame {
     public JButton botones[][]; 
     public Partida juego;
     public Ficha seleccionada[];
+    //Indica si la partida va normal (1), si un jugador ha acabado (2) o si ninguno puede mover (3)
+    public int vueltas;
     
     public void iniciarBotones(){
         botones[0][0] = boton_0;
@@ -232,6 +237,7 @@ public class Ventana extends javax.swing.JFrame {
     public Ventana() {
         initComponents();
         juego = new Partida(this);
+        vueltas = 1;
         seleccionada = new Ficha[2];
         seleccionada[0] = null;
         seleccionada[1] = null;
@@ -252,8 +258,6 @@ public class Ventana extends javax.swing.JFrame {
        ponerFichasRestantesJugador(0);
        ponerFichasRestantesJugador(1);
        
-       //juego.tablero.tocaEsquina(4, 4, f);
-       jLabel2.setText("¡Turno del jugador "+(1)+"!");
         restantesJ1.setText("Te quedan "+juego.jugadores[0].restantes()+" bloques.");
         restantesJ2.setText("Te quedan "+juego.jugadores[1].restantes()+" bloques.");
         
@@ -262,51 +266,60 @@ public class Ventana extends javax.swing.JFrame {
         labelTurnoJ1.setForeground(getColorByNum(0));
         labelTurnoJ2.setForeground(getColorByNum(1));
         
-       
     }
     
     public void accionBoton(int x, int y){
       //  System.out.println("Botón: ("+x+","+y+") --> "+juego.tablero.celda[x][y].x+","+juego.tablero.celda[x][y].y+
       //          " ("+juego.tablero.celda[x][y].color+")");
-        Ficha sel = seleccionada[juego.turno];
+        
+      
+      //  juego.tablero.movimientoPosible(x, y, 1);
+      Ficha sel = seleccionada[juego.turno];
         if(sel != null){
-            if(juego.tablero.sePuedePoner(x,y,sel)){
-                if(juego.validoPrimerTurno(x, y, sel) || juego.tablero.tocaEsquina(x, y, sel)){
-                    juego.tablero.ponerFicha(x, y, sel);
-                    juego.jugadores[juego.turno].fichas.remove(sel);
-                    seleccionada[juego.turno] = null;
-                    if(juego.turno == 0){
-                        limpiarPanel(pj1Seleccionada);
-                        limpiarPanel(pj1TodasFichas);
-                        ponerFichasRestantesJugador(0);
-                        restantesJ1.setText("Te quedan "+juego.jugadores[0].restantes()+" bloques.");
-                    } else {
-                        limpiarPanel(pj2Seleccionada);
-                        limpiarPanel(pj2TodasFichas);
-                        ponerFichasRestantesJugador(1);
-                        restantesJ2.setText("Te quedan "+juego.jugadores[1].restantes()+" bloques.");
-                    }
-                    juego.cambiarTurno();
-                    if(juego.turno == 0){
-                        labelTurnoJ1.setText("¡TU TURNO!");
-                        labelTurnoJ2.setText("");
+           // if(juego.total_turnos < 2 || juego.tablero.sePuedePonerPieza(juego.turno)){
+                if(juego.tablero.sePuedePoner(x,y,sel)){
+                    if(juego.validoPrimerTurno(x, y, sel) || juego.tablero.tocaEsquina(x, y, sel)){
+                        juego.tablero.ponerFicha(x, y, sel);
+                        juego.jugadores[juego.turno].fichas.remove(sel);
+                        seleccionada[juego.turno] = null;
+                        if(juego.turno == 0){
+                            limpiarPanel(pj1Seleccionada);
+                            limpiarPanel(pj1TodasFichas);
+                            ponerFichasRestantesJugador(0);
+                            restantesJ1.setText("Te quedan "+juego.jugadores[0].restantes()+" bloques.");
+                        } else {
+                            limpiarPanel(pj2Seleccionada);
+                            limpiarPanel(pj2TodasFichas);
+                            ponerFichasRestantesJugador(1);
+                            restantesJ2.setText("Te quedan "+juego.jugadores[1].restantes()+" bloques.");
+                        }
+                        pasarTurno();
                     }else{
-                        labelTurnoJ2.setText("¡TU TURNO!");
-                        labelTurnoJ1.setText("");
-                    }
-                    jLabel2.setText("¡Turno del jugador "+(juego.turno + 1)+"!");
-                }else{
-                    switch(juego.total_turnos){
-                        case 0: 
-                            botones[9][4].setBackground(getColorByNum(2));
-                            botones[4][9].setBackground(getColorByNum(3));
-                            break;
-                        case 1:
-                            botones[4][9].setBackground(getColorByNum(3));
-                            break;
+                        switch(juego.total_turnos){
+                            case 0: 
+                                botones[9][4].setBackground(getColorByNum(2));
+                                botones[4][9].setBackground(getColorByNum(3));
+                                break;
+                            case 1:
+                                botones[4][9].setBackground(getColorByNum(3));
+                                break;
+                        }
                     }
                 }
-            }
+            /*}else{
+                JOptionPane.showMessageDialog(this, "Al jugador "+(juego.turno+1)+" ya no "
+                        + "le quedan movimientos.", "Fin de la partida de "+(juego.turno+1), JOptionPane.WARNING_MESSAGE);
+                vueltas++;
+                juego.cambiarTurno();
+                if(juego.turno == 0){
+                    labelTurnoJ1.setText("¡TU TURNO!");
+                    labelTurnoJ2.setText("");
+                }else{
+                    labelTurnoJ2.setText("¡TU TURNO!");
+                    labelTurnoJ1.setText("");
+                }
+                jLabel2.setText("¡Turno del jugador "+(juego.turno + 1)+"!");
+            }*/
         }
     }
     
@@ -597,7 +610,6 @@ public class Ventana extends javax.swing.JFrame {
         boton_193 = new javax.swing.JButton();
         boton_194 = new javax.swing.JButton();
         boton_195 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
         restantesJ2 = new javax.swing.JLabel();
         restantesJ1 = new javax.swing.JLabel();
         pj1TodasFichas = new javax.swing.JPanel();
@@ -618,6 +630,8 @@ public class Ventana extends javax.swing.JFrame {
         labelTurnoJ2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         labelTurnoJ1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("BlockUs Duo");
@@ -1999,9 +2013,6 @@ public class Ventana extends javax.swing.JFrame {
         });
         pTablero.add(boton_195);
 
-        jLabel2.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
-        jLabel2.setText("Y ------------------>");
-
         restantesJ2.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         restantesJ2.setText("Y ------------------>");
 
@@ -2079,19 +2090,33 @@ public class Ventana extends javax.swing.JFrame {
         pj2Seleccionada.setLayout(new java.awt.BorderLayout());
         panelSeleccionadaJ1.add(pj2Seleccionada, java.awt.BorderLayout.CENTER);
 
-        jPanel1.setLayout(new java.awt.GridLayout());
+        jPanel1.setLayout(new java.awt.GridLayout(1, 0));
 
         labelTurnoJ2.setFont(new java.awt.Font("Ubuntu", 1, 36)); // NOI18N
         labelTurnoJ2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelTurnoJ2.setText("jLabel3");
         jPanel1.add(labelTurnoJ2);
 
-        jPanel2.setLayout(new java.awt.GridLayout());
+        jPanel2.setLayout(new java.awt.GridLayout(1, 0));
 
         labelTurnoJ1.setFont(new java.awt.Font("Ubuntu", 1, 36)); // NOI18N
         labelTurnoJ1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelTurnoJ1.setText("jLabel3");
         jPanel2.add(labelTurnoJ1);
+
+        jButton1.setText("Pasar turno");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Finalizar partida");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -2102,17 +2127,24 @@ public class Ventana extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(pj1TodasFichas, javax.swing.GroupLayout.PREFERRED_SIZE, 464, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(panelSeleccionadaJ0, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(restantesJ1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(panelSeleccionadaJ0, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(restantesJ1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(0, 4, Short.MAX_VALUE)
+                                .addComponent(pj1TodasFichas, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(258, 258, 258)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(pTablero, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButton1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton2)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -2121,7 +2153,7 @@ public class Ventana extends javax.swing.JFrame {
                                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(pj2TodasFichas, javax.swing.GroupLayout.PREFERRED_SIZE, 464, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addGap(0, 5, Short.MAX_VALUE))
                             .addComponent(restantesJ2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addComponent(jLabel1))
                 .addContainerGap())
@@ -2133,9 +2165,10 @@ public class Ventana extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
                     .addComponent(restantesJ2)
-                    .addComponent(restantesJ1))
+                    .addComponent(restantesJ1)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -2151,7 +2184,7 @@ public class Ventana extends javax.swing.JFrame {
                             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(pj1TodasFichas, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -2198,6 +2231,19 @@ public class Ventana extends javax.swing.JFrame {
             limpiarPanel(pj2TodasFichas);
         }
        ponerFichasRestantesJugador(turno);
+    }
+    
+    public void pasarTurno(){
+        juego.cambiarTurno();
+        System.out.println("Se puede seguir poniendo ("+juego.turno+"): ");
+        juego.sePuedenSeguirPoniendoFichas(juego.jugadores[juego.turno]);
+        if(juego.turno == 0){
+            labelTurnoJ1.setText("¡TU TURNO!");
+            labelTurnoJ2.setText("");
+        }else{
+            labelTurnoJ2.setText("¡TU TURNO!");
+            labelTurnoJ1.setText("");
+        }
     }
     
     private void bDarVueltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDarVueltaActionPerformed
@@ -3008,6 +3054,39 @@ public class Ventana extends javax.swing.JFrame {
         darVuelta2(1);
     }//GEN-LAST:event_bDarVuelta3ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        pasarTurno();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        int n = JOptionPane.showOptionDialog(this, "¿Estáis seguros de que queréis finalizar la partida?", 
+                "Acabar partida", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null,
+                new Object[] {"Sí, acabar partida", "No, seguir jugando"}, "No, seguir jugando");
+        if(n == 0){
+            int j1 = juego.jugadores[0].restantes();
+            int j2 = juego.jugadores[1].restantes();
+            if(j1 < j2){
+                JOptionPane.showMessageDialog(this, "El JUGADOR 1 gana por "+(j2-j1)+" casillas. ¡ENHORABUENA!",
+                        "Fin de la partida", JOptionPane.INFORMATION_MESSAGE);
+                System.exit(0);
+            }else{
+                if(j2 < j1){
+                    JOptionPane.showMessageDialog(this, "El JUGADOR 2 gana por "+(j1-j2)+" casillas. ¡ENHORABUENA!",
+                        "Fin de la partida", JOptionPane.INFORMATION_MESSAGE);
+                    System.exit(0);
+                }else{
+                    int n2 = JOptionPane.showOptionDialog(this, "La partida acabó en empate a "+j1+" casillas. ¿Queréis seguir jugando "
+                            + "hasta que haya un ganador?", 
+                    "Acabar partida", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null,
+                    new Object[] {"Sí, seguir jugando", "No, acabar en empate"}, "Sí, seguir jugando");
+                    if(n2 == 1){
+                        System.exit(0);
+                    }
+                }
+            }
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -3246,8 +3325,9 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JButton boton_97;
     private javax.swing.JButton boton_98;
     private javax.swing.JButton boton_99;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel labelTurnoJ1;

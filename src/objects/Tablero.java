@@ -32,6 +32,7 @@ public class Tablero {
                 for(int j=y; j<y+f.y; j++){
                     if(f.celda[i-x][j-y].color != -1){
                         celda[i][j].pintar(f.color);
+                        celda[i][j].esquina = true;
                         ven.botones[i][j].setBackground(Ventana.getColorByNum(f.color));
                     }
                 }
@@ -86,8 +87,10 @@ public class Tablero {
         if(esquinas.isEmpty()){
             return false;
         }
+     //   System.out.println("Esto es: "+x+","+y);
         ArrayList<Celda> esquinas_de_esquinas = new ArrayList<>();
         for(Celda cel : esquinas){
+       //     System.out.println("->"+cel.x+","+cel.y);
             if(cel.x + x> 0 && cel.y + y> 0){
                 esquinas_de_esquinas.add(new Celda(cel.x +x - 1, cel.y+y - 1));
             }
@@ -108,14 +111,19 @@ public class Tablero {
         ponerFicha(x, y, f);
         ArrayList<Celda> celdas_filtradas = new ArrayList<>();
         for(Celda c : esquinas_de_esquinas){
-            if(celda[c.x][c.y].color != f.color && (
-                    c.x > 0 && celda[c.x - 1][c.y].color == f.color ||
-                    c.x < NUM_CELDAS - 1 && celda[c.x + 1][c.y].color == f.color || 
-                    c.y > 0 && celda[c.x][c.y-1].color == f.color || 
-                    c.y < NUM_CELDAS - 1&& celda[c.x][c.y+1].color == f.color)){
+      //      System.out.println("---->"+c.x+","+c.y);
+            try{
+                if(celda[c.x][c.y].color != f.color && (
+                        c.x > 0 && celda[c.x - 1][c.y].color == f.color ||
+                        c.x < NUM_CELDAS - 1 && celda[c.x + 1][c.y].color == f.color || 
+                        c.y > 0 && celda[c.x][c.y-1].color == f.color || 
+                        c.y < NUM_CELDAS - 1&& celda[c.x][c.y+1].color == f.color)){
 
-            }else
-                celdas_filtradas.add(c);
+                }else
+                    celdas_filtradas.add(c); 
+            }catch(ArrayIndexOutOfBoundsException a){
+                System.err.println("Provocado por: "+c.toString());
+            }
         }
        /* for(Celda c : celdas_filtradas){
             ven.botones[c.x][c.y].setBackground(Color.BLACK);
@@ -129,6 +137,69 @@ public class Tablero {
             }
         }
         return coinc > 0;
+    }
+    
+    //Indica si hay alguna esquina de su color alrededor suyo, además
+    //de otras restricciones y devuelve si se puede poner una ficha (1x1).
+    public boolean movimientoPosible(int x, int y, int color){
+        //Miramos la celda principal.
+        if(celda[x][y].color == color){
+            if(celda[x][y].esquina)
+                return true;
+            else
+                return false;
+        }else{
+            if(celda[x][y].color != -1)
+                return true;
+        }
+        //Miramos si hay alguna arista que coincida.
+        if(!coincideConArista(x, y, color)){
+            return false;
+        }
+        //Cogemos las esquinas de la celda...
+        ArrayList<Celda> esquinas_de_esquinas = new ArrayList<>();
+        if(x > 0 && y > 0){
+            esquinas_de_esquinas.add(new Celda(x-1,y-1));
+        }
+        if(x > 0 && y < NUM_CELDAS - 1){
+            esquinas_de_esquinas.add(new Celda(x-1,y+1));
+        }
+        if(x < NUM_CELDAS - 1 && y > 0){
+            esquinas_de_esquinas.add(new Celda(x+1,y-1));
+        }
+        if(x < NUM_CELDAS - 1 && y < NUM_CELDAS - 1){
+            esquinas_de_esquinas.add(new Celda(x+1,y+1));
+        }
+        
+        
+        for(Celda c : esquinas_de_esquinas){
+            if(!coincideConArista(c.x, c.y, color) && celda[c.x][c.y].esquina && celda[c.x][c.y].color == color){
+                return true;
+                //ven.botones[c.x][c.y].setBackground(Color.BLACK);
+            }
+        }
+        return false;
+    }
+    
+    public boolean sePuedePonerPieza(int color){
+        for(int i=0; i<NUM_CELDAS; i++){
+            for(int j=0; j<NUM_CELDAS; j++){
+                if(movimientoPosible(i, j, color)){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    
+    public boolean coincideConArista(int x, int y, int color){
+        if(x > 0 && celda[x - 1][y].color == color ||
+                x < NUM_CELDAS - 1 && celda[x + 1][y].color == color || 
+                y > 0 && celda[x][y-1].color == color || 
+                y < NUM_CELDAS - 1&& celda[x][y+1].color == color){
+            return false;
+        }else
+            return true;
     }
     
 }
