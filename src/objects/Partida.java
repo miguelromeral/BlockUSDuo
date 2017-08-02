@@ -77,8 +77,8 @@ public class Partida {
                             case 6: f.voltear(); break;
                             case 7: f.voltear2(); break;
                         }
-                       // System.out.println("Se puede poner ("+i+","+j+","+k+"): "+tablero.sePuedePoner(i, j, f)+", "
-                       // + "toca esquina: "+tablero.tocaEsquina(i, j, f)+", valido primero: "+validoPrimerTurno(i, j, f));
+                        System.out.println("Se puede poner ("+i+","+j+","+k+"): "+tablero.sePuedePoner(i, j, f)+", "
+                        + "toca esquina: "+tablero.tocaEsquina(i, j, f)+", valido primero: "+validoPrimerTurno(i, j, f));
                         if(tablero.sePuedePoner(i, j, f) && (validoPrimerTurno(i, j, f) || tablero.tocaEsquina(i, j, f))){
                             return true;
                         }

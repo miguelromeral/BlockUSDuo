@@ -7,12 +7,10 @@ package gui;
 
 import java.awt.Color;
 import java.awt.GridLayout;
-import static java.lang.Thread.sleep;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import objects.Ficha;
@@ -30,6 +28,7 @@ public class Ventana extends javax.swing.JFrame {
     public Ficha seleccionada[];
     //Indica si la partida va normal (1), si un jugador ha acabado (2) o si ninguno puede mover (3)
     public int vueltas;
+    private JLabel labels[];
     
     public void iniciarBotones(){
         botones[0][0] = boton_0;
@@ -231,6 +230,39 @@ public class Ventana extends javax.swing.JFrame {
 
     }
     
+    public void iniciarLabels(){
+        labels = new JLabel[2*Tablero.NUM_CELDAS + 1];
+        labels[0] = lxy;
+        labels[1] = ly0;
+        labels[2] = ly1;
+        labels[3] = ly2;
+        labels[4] = ly3;
+        labels[5] = ly4;
+        labels[6] = ly5;
+        labels[7] = ly6;
+        labels[8] = ly7;
+        labels[9] = ly8;
+        labels[10] = ly9;
+        labels[11] = ly10;
+        labels[12] = ly11;
+        labels[13] = ly12;
+        labels[14] = ly13;
+        labels[15] = lx0;
+        labels[16] = lx1;
+        labels[17] = lx2;
+        labels[18] = lx3;
+        labels[19] = lx4;
+        labels[20] = lx5;
+        labels[21] = lx6;
+        labels[22] = lx7;
+        labels[23] = lx8;
+        labels[24] = lx9;
+        labels[25] = lx10;
+        labels[26] = lx11;
+        labels[27] = lx12;
+        labels[28] = lx13;
+    }
+    
     /**
      * Creates new form Ventana
      */
@@ -243,10 +275,14 @@ public class Ventana extends javax.swing.JFrame {
         seleccionada[1] = null;
         botones = new JButton[Tablero.NUM_CELDAS][Tablero.NUM_CELDAS];
         iniciarBotones();
+        iniciarLabels();
+        pTablero.setLayout(new GridLayout(Tablero.NUM_CELDAS+1,Tablero.NUM_CELDAS+1));
         
-        pTablero.setLayout(new GridLayout(Tablero.NUM_CELDAS,Tablero.NUM_CELDAS));
-        
+        for(int i=0; i<=Tablero.NUM_CELDAS; i++){
+            pTablero.add(labels[i]);
+        }
         for(int i=0; i<Tablero.NUM_CELDAS; i++){
+            pTablero.add(labels[Tablero.NUM_CELDAS+1+i]);
             for(int j=0; j<Tablero.NUM_CELDAS; j++){
                 botones[i][j].setBackground(getColorByNum(-1));
                 pTablero.add(botones[i][j]);
@@ -328,6 +364,7 @@ public class Ventana extends javax.swing.JFrame {
             for(Ficha f : juego.jugadores[jugador].fichas){
                 JPanel panel = new JPanel();
                 panel.setLayout(new GridLayout(2,1));
+                int n = (int) Math.sqrt((double) juego.jugadores[0].fichas.size());
                 if(jugador == 0){
                     JButton boton = new JButton("Seleccionar");
                     boton.setVisible(true);
@@ -343,6 +380,7 @@ public class Ventana extends javax.swing.JFrame {
                     panel.add(printFicha(f));
                     panel.add(boton);
                     pj1TodasFichas.add(panel);
+                    pj1TodasFichas.setLayout(new GridLayout(n, n));
                 }else{
                     JButton boton = new JButton("Seleccionar");
                     boton.setVisible(true);
@@ -358,6 +396,7 @@ public class Ventana extends javax.swing.JFrame {
                     panel.add(printFicha(f));
                     panel.add(boton);
                     pj2TodasFichas.add(panel);
+                    pj2TodasFichas.setLayout(new GridLayout(n, n));
                 }
             }
         }
@@ -367,7 +406,6 @@ public class Ventana extends javax.swing.JFrame {
         p.revalidate();
         p.repaint();
     }
-    
     public JPanel printFicha(Ficha f){
         JPanel panel = new JPanel();
         int max;
@@ -391,7 +429,7 @@ public class Ventana extends javax.swing.JFrame {
        panel.setVisible(true);
         return panel;
     }
-    
+   
     public static Color getColorByNum(int color){
         switch(color){
             case -1: return Color.WHITE;
@@ -414,6 +452,22 @@ public class Ventana extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         pTablero = new javax.swing.JPanel();
+        lxy = new javax.swing.JLabel();
+        ly0 = new javax.swing.JLabel();
+        ly1 = new javax.swing.JLabel();
+        ly2 = new javax.swing.JLabel();
+        ly3 = new javax.swing.JLabel();
+        ly4 = new javax.swing.JLabel();
+        ly5 = new javax.swing.JLabel();
+        ly6 = new javax.swing.JLabel();
+        ly7 = new javax.swing.JLabel();
+        ly8 = new javax.swing.JLabel();
+        ly9 = new javax.swing.JLabel();
+        ly10 = new javax.swing.JLabel();
+        ly11 = new javax.swing.JLabel();
+        ly12 = new javax.swing.JLabel();
+        ly13 = new javax.swing.JLabel();
+        lx0 = new javax.swing.JLabel();
         boton_0 = new javax.swing.JButton();
         boton_1 = new javax.swing.JButton();
         boton_2 = new javax.swing.JButton();
@@ -428,6 +482,7 @@ public class Ventana extends javax.swing.JFrame {
         boton_11 = new javax.swing.JButton();
         boton_12 = new javax.swing.JButton();
         boton_13 = new javax.swing.JButton();
+        lx1 = new javax.swing.JLabel();
         boton_14 = new javax.swing.JButton();
         boton_15 = new javax.swing.JButton();
         boton_16 = new javax.swing.JButton();
@@ -442,6 +497,7 @@ public class Ventana extends javax.swing.JFrame {
         boton_25 = new javax.swing.JButton();
         boton_26 = new javax.swing.JButton();
         boton_27 = new javax.swing.JButton();
+        lx2 = new javax.swing.JLabel();
         boton_28 = new javax.swing.JButton();
         boton_29 = new javax.swing.JButton();
         boton_30 = new javax.swing.JButton();
@@ -456,6 +512,7 @@ public class Ventana extends javax.swing.JFrame {
         boton_39 = new javax.swing.JButton();
         boton_40 = new javax.swing.JButton();
         boton_41 = new javax.swing.JButton();
+        lx3 = new javax.swing.JLabel();
         boton_42 = new javax.swing.JButton();
         boton_43 = new javax.swing.JButton();
         boton_44 = new javax.swing.JButton();
@@ -470,6 +527,7 @@ public class Ventana extends javax.swing.JFrame {
         boton_53 = new javax.swing.JButton();
         boton_54 = new javax.swing.JButton();
         boton_55 = new javax.swing.JButton();
+        lx4 = new javax.swing.JLabel();
         boton_56 = new javax.swing.JButton();
         boton_57 = new javax.swing.JButton();
         boton_58 = new javax.swing.JButton();
@@ -484,6 +542,7 @@ public class Ventana extends javax.swing.JFrame {
         boton_67 = new javax.swing.JButton();
         boton_68 = new javax.swing.JButton();
         boton_69 = new javax.swing.JButton();
+        lx5 = new javax.swing.JLabel();
         boton_70 = new javax.swing.JButton();
         boton_71 = new javax.swing.JButton();
         boton_72 = new javax.swing.JButton();
@@ -498,6 +557,7 @@ public class Ventana extends javax.swing.JFrame {
         boton_81 = new javax.swing.JButton();
         boton_82 = new javax.swing.JButton();
         boton_83 = new javax.swing.JButton();
+        lx6 = new javax.swing.JLabel();
         boton_84 = new javax.swing.JButton();
         boton_85 = new javax.swing.JButton();
         boton_86 = new javax.swing.JButton();
@@ -512,6 +572,7 @@ public class Ventana extends javax.swing.JFrame {
         boton_95 = new javax.swing.JButton();
         boton_96 = new javax.swing.JButton();
         boton_97 = new javax.swing.JButton();
+        lx7 = new javax.swing.JLabel();
         boton_98 = new javax.swing.JButton();
         boton_99 = new javax.swing.JButton();
         boton_100 = new javax.swing.JButton();
@@ -526,6 +587,7 @@ public class Ventana extends javax.swing.JFrame {
         boton_109 = new javax.swing.JButton();
         boton_110 = new javax.swing.JButton();
         boton_111 = new javax.swing.JButton();
+        lx8 = new javax.swing.JLabel();
         boton_112 = new javax.swing.JButton();
         boton_113 = new javax.swing.JButton();
         boton_114 = new javax.swing.JButton();
@@ -540,6 +602,7 @@ public class Ventana extends javax.swing.JFrame {
         boton_123 = new javax.swing.JButton();
         boton_124 = new javax.swing.JButton();
         boton_125 = new javax.swing.JButton();
+        lx9 = new javax.swing.JLabel();
         boton_126 = new javax.swing.JButton();
         boton_127 = new javax.swing.JButton();
         boton_128 = new javax.swing.JButton();
@@ -554,6 +617,7 @@ public class Ventana extends javax.swing.JFrame {
         boton_137 = new javax.swing.JButton();
         boton_138 = new javax.swing.JButton();
         boton_139 = new javax.swing.JButton();
+        lx10 = new javax.swing.JLabel();
         boton_140 = new javax.swing.JButton();
         boton_141 = new javax.swing.JButton();
         boton_142 = new javax.swing.JButton();
@@ -568,6 +632,7 @@ public class Ventana extends javax.swing.JFrame {
         boton_151 = new javax.swing.JButton();
         boton_152 = new javax.swing.JButton();
         boton_153 = new javax.swing.JButton();
+        lx11 = new javax.swing.JLabel();
         boton_154 = new javax.swing.JButton();
         boton_155 = new javax.swing.JButton();
         boton_156 = new javax.swing.JButton();
@@ -582,6 +647,7 @@ public class Ventana extends javax.swing.JFrame {
         boton_165 = new javax.swing.JButton();
         boton_166 = new javax.swing.JButton();
         boton_167 = new javax.swing.JButton();
+        lx12 = new javax.swing.JLabel();
         boton_168 = new javax.swing.JButton();
         boton_169 = new javax.swing.JButton();
         boton_170 = new javax.swing.JButton();
@@ -596,6 +662,7 @@ public class Ventana extends javax.swing.JFrame {
         boton_179 = new javax.swing.JButton();
         boton_180 = new javax.swing.JButton();
         boton_181 = new javax.swing.JButton();
+        lx13 = new javax.swing.JLabel();
         boton_182 = new javax.swing.JButton();
         boton_183 = new javax.swing.JButton();
         boton_184 = new javax.swing.JButton();
@@ -632,6 +699,7 @@ public class Ventana extends javax.swing.JFrame {
         labelTurnoJ1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("BlockUs Duo");
@@ -639,7 +707,87 @@ public class Ventana extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
         jLabel1.setText("BlockUs Duo");
 
-        pTablero.setLayout(new java.awt.GridLayout(14, 14));
+        pTablero.setLayout(new java.awt.GridLayout(15, 15));
+
+        lxy.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lxy.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lxy.setText("X\\Y");
+        pTablero.add(lxy);
+
+        ly0.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ly0.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ly0.setText("0");
+        pTablero.add(ly0);
+
+        ly1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ly1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ly1.setText("1");
+        pTablero.add(ly1);
+
+        ly2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ly2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ly2.setText("2");
+        pTablero.add(ly2);
+
+        ly3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ly3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ly3.setText("3");
+        pTablero.add(ly3);
+
+        ly4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ly4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ly4.setText("4");
+        pTablero.add(ly4);
+
+        ly5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ly5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ly5.setText("5");
+        pTablero.add(ly5);
+
+        ly6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ly6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ly6.setText("6");
+        pTablero.add(ly6);
+
+        ly7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ly7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ly7.setText("7");
+        pTablero.add(ly7);
+
+        ly8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ly8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ly8.setText("8");
+        pTablero.add(ly8);
+
+        ly9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ly9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ly9.setText("9");
+        pTablero.add(ly9);
+
+        ly10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ly10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ly10.setText("10");
+        pTablero.add(ly10);
+
+        ly11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ly11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ly11.setText("11");
+        pTablero.add(ly11);
+
+        ly12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ly12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ly12.setText("12");
+        pTablero.add(ly12);
+
+        ly13.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ly13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ly13.setText("13");
+        pTablero.add(ly13);
+
+        lx0.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lx0.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lx0.setText("0");
+        pTablero.add(lx0);
 
         boton_0.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -739,6 +887,11 @@ public class Ventana extends javax.swing.JFrame {
         });
         pTablero.add(boton_13);
 
+        lx1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lx1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lx1.setText("1");
+        pTablero.add(lx1);
+
         boton_14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_14ActionPerformed(evt);
@@ -836,6 +989,11 @@ public class Ventana extends javax.swing.JFrame {
             }
         });
         pTablero.add(boton_27);
+
+        lx2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lx2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lx2.setText("2");
+        pTablero.add(lx2);
 
         boton_28.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -935,6 +1093,11 @@ public class Ventana extends javax.swing.JFrame {
         });
         pTablero.add(boton_41);
 
+        lx3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lx3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lx3.setText("3");
+        pTablero.add(lx3);
+
         boton_42.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_42ActionPerformed(evt);
@@ -1032,6 +1195,11 @@ public class Ventana extends javax.swing.JFrame {
             }
         });
         pTablero.add(boton_55);
+
+        lx4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lx4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lx4.setText("4");
+        pTablero.add(lx4);
 
         boton_56.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1131,6 +1299,11 @@ public class Ventana extends javax.swing.JFrame {
         });
         pTablero.add(boton_69);
 
+        lx5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lx5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lx5.setText("5");
+        pTablero.add(lx5);
+
         boton_70.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_70ActionPerformed(evt);
@@ -1228,6 +1401,11 @@ public class Ventana extends javax.swing.JFrame {
             }
         });
         pTablero.add(boton_83);
+
+        lx6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lx6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lx6.setText("6");
+        pTablero.add(lx6);
 
         boton_84.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1327,6 +1505,11 @@ public class Ventana extends javax.swing.JFrame {
         });
         pTablero.add(boton_97);
 
+        lx7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lx7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lx7.setText("7");
+        pTablero.add(lx7);
+
         boton_98.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_98ActionPerformed(evt);
@@ -1424,6 +1607,11 @@ public class Ventana extends javax.swing.JFrame {
             }
         });
         pTablero.add(boton_111);
+
+        lx8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lx8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lx8.setText("8");
+        pTablero.add(lx8);
 
         boton_112.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1523,6 +1711,11 @@ public class Ventana extends javax.swing.JFrame {
         });
         pTablero.add(boton_125);
 
+        lx9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lx9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lx9.setText("9");
+        pTablero.add(lx9);
+
         boton_126.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_126ActionPerformed(evt);
@@ -1620,6 +1813,11 @@ public class Ventana extends javax.swing.JFrame {
             }
         });
         pTablero.add(boton_139);
+
+        lx10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lx10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lx10.setText("10");
+        pTablero.add(lx10);
 
         boton_140.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1719,6 +1917,11 @@ public class Ventana extends javax.swing.JFrame {
         });
         pTablero.add(boton_153);
 
+        lx11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lx11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lx11.setText("11");
+        pTablero.add(lx11);
+
         boton_154.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_154ActionPerformed(evt);
@@ -1817,6 +2020,11 @@ public class Ventana extends javax.swing.JFrame {
         });
         pTablero.add(boton_167);
 
+        lx12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lx12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lx12.setText("12");
+        pTablero.add(lx12);
+
         boton_168.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_168ActionPerformed(evt);
@@ -1914,6 +2122,11 @@ public class Ventana extends javax.swing.JFrame {
             }
         });
         pTablero.add(boton_181);
+
+        lx13.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lx13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lx13.setText("13");
+        pTablero.add(lx13);
 
         boton_182.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2118,6 +2331,13 @@ public class Ventana extends javax.swing.JFrame {
             }
         });
 
+        jButton3.setText("Posible...");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -2128,33 +2348,32 @@ public class Ventana extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(panelSeleccionadaJ0, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(restantesJ1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(panelSeleccionadaJ0, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(restantesJ1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(0, 4, Short.MAX_VALUE)
-                                .addComponent(pj1TodasFichas, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(258, 258, 258)))
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(pj1TodasFichas, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(pTablero, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jButton1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton2)))
+                                .addComponent(jButton2)
+                                .addGap(40, 40, 40)
+                                .addComponent(jButton3))
+                            .addComponent(pTablero, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(panelSeleccionadaJ1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE))
+                            .addComponent(restantesJ2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(pj2TodasFichas, javax.swing.GroupLayout.PREFERRED_SIZE, 464, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 5, Short.MAX_VALUE))
-                            .addComponent(restantesJ2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addComponent(pj2TodasFichas, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addComponent(jLabel1))
                 .addContainerGap())
         );
@@ -2168,23 +2387,27 @@ public class Ventana extends javax.swing.JFrame {
                     .addComponent(restantesJ2)
                     .addComponent(restantesJ1)
                     .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(jButton2)
+                    .addComponent(jButton3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pTablero, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(panelSeleccionadaJ1, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(pj2TodasFichas, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(pTablero, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(panelSeleccionadaJ0, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(pj1TodasFichas, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(panelSeleccionadaJ1, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
+                                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(pj2TodasFichas, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(panelSeleccionadaJ0, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
+                                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(pj1TodasFichas, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
 
         pack();
@@ -2192,52 +2415,58 @@ public class Ventana extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     public void darVuelta(int turno){
-        seleccionada[turno].voltear();
-        if(turno == 0){
-            limpiarPanel(pj1Seleccionada);
-            pj1Seleccionada.add(printFicha(seleccionada[0]));
-            limpiarPanel(pj1TodasFichas);
-        }else{
-            limpiarPanel(pj2Seleccionada);
-            pj2Seleccionada.add(printFicha(seleccionada[1]));
-            limpiarPanel(pj2TodasFichas);
+            if(seleccionada[turno] != null){
+            seleccionada[turno].voltear();
+            if(turno == 0){
+                limpiarPanel(pj1Seleccionada);
+                pj1Seleccionada.add(printFicha(seleccionada[0]));
+                limpiarPanel(pj1TodasFichas);
+            }else{
+                limpiarPanel(pj2Seleccionada);
+                pj2Seleccionada.add(printFicha(seleccionada[1]));
+                limpiarPanel(pj2TodasFichas);
+            }
+           ponerFichasRestantesJugador(turno);
         }
-       ponerFichasRestantesJugador(turno);
     }
     
     public void darVuelta2(int turno){
-        seleccionada[turno].voltear2();
-        if(turno == 0){
-            limpiarPanel(pj1Seleccionada);
-            pj1Seleccionada.add(printFicha(seleccionada[0]));
-            limpiarPanel(pj1TodasFichas);
-        }else{
-            limpiarPanel(pj2Seleccionada);
-            pj2Seleccionada.add(printFicha(seleccionada[1]));
-            limpiarPanel(pj2TodasFichas);
+        if(seleccionada[turno] != null){
+            seleccionada[turno].voltear2();
+            if(turno == 0){
+                limpiarPanel(pj1Seleccionada);
+                pj1Seleccionada.add(printFicha(seleccionada[0]));
+                limpiarPanel(pj1TodasFichas);
+            }else{
+                limpiarPanel(pj2Seleccionada);
+                pj2Seleccionada.add(printFicha(seleccionada[1]));
+                limpiarPanel(pj2TodasFichas);
+            }
+           ponerFichasRestantesJugador(turno);
         }
-       ponerFichasRestantesJugador(turno);
     }
     
     public void girar(int turno){
-        seleccionada[turno].girar_horario();
-        if(turno == 0){
-            limpiarPanel(pj1Seleccionada);
-            pj1Seleccionada.add(printFicha(seleccionada[0]));
-            limpiarPanel(pj1TodasFichas);
-        }else{
-            limpiarPanel(pj2Seleccionada);
-            pj2Seleccionada.add(printFicha(seleccionada[1]));
-            limpiarPanel(pj2TodasFichas);
+        if(seleccionada[turno] != null){
+            seleccionada[turno].girar_horario();
+            if(turno == 0){
+                limpiarPanel(pj1Seleccionada);
+                pj1Seleccionada.add(printFicha(seleccionada[0]));
+                limpiarPanel(pj1TodasFichas);
+            }else{
+                limpiarPanel(pj2Seleccionada);
+                pj2Seleccionada.add(printFicha(seleccionada[1]));
+                limpiarPanel(pj2TodasFichas);
+            }
+           ponerFichasRestantesJugador(turno);
         }
-       ponerFichasRestantesJugador(turno);
     }
     
     public void pasarTurno(){
         juego.cambiarTurno();
-        System.out.println("Se puede seguir poniendo ("+juego.turno+"): ");
+       /* System.out.println("Se puede seguir poniendo ("+juego.turno+"): ");
         juego.sePuedenSeguirPoniendoFichas(juego.jugadores[juego.turno]);
-        if(juego.turno == 0){
+      */  if(juego.turno == 0){
             labelTurnoJ1.setText("¡TU TURNO!");
             labelTurnoJ2.setText("");
         }else{
@@ -2249,11 +2478,9 @@ public class Ventana extends javax.swing.JFrame {
     private void bDarVueltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDarVueltaActionPerformed
         darVuelta(0);
     }//GEN-LAST:event_bDarVueltaActionPerformed
-
     private void bGirarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGirarActionPerformed
         girar(0);
     }//GEN-LAST:event_bGirarActionPerformed
-
     private void boton_0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_0ActionPerformed
         accionBoton(0, 0);
     }//GEN-LAST:event_boton_0ActionPerformed
@@ -3021,39 +3248,30 @@ public class Ventana extends javax.swing.JFrame {
     private void boton_191ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_191ActionPerformed
         accionBoton(9, 13);
     }//GEN-LAST:event_boton_191ActionPerformed
-
     private void boton_192ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_192ActionPerformed
         accionBoton(10, 13);
     }//GEN-LAST:event_boton_192ActionPerformed
-
     private void boton_193ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_193ActionPerformed
         accionBoton(11, 13);
     }//GEN-LAST:event_boton_193ActionPerformed
-
     private void boton_194ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_194ActionPerformed
         accionBoton(12, 13);
     }//GEN-LAST:event_boton_194ActionPerformed
-
     private void boton_195ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_195ActionPerformed
         accionBoton(13, 13);
     }//GEN-LAST:event_boton_195ActionPerformed
-
     private void bDarVuelta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDarVuelta1ActionPerformed
         darVuelta(1);
     }//GEN-LAST:event_bDarVuelta1ActionPerformed
-
     private void bGirar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGirar1ActionPerformed
         girar(1);
     }//GEN-LAST:event_bGirar1ActionPerformed
-
     private void bDarVuelta2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDarVuelta2ActionPerformed
         darVuelta2(0);
     }//GEN-LAST:event_bDarVuelta2ActionPerformed
-
     private void bDarVuelta3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDarVuelta3ActionPerformed
         darVuelta2(1);
     }//GEN-LAST:event_bDarVuelta3ActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         pasarTurno();
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -3086,6 +3304,10 @@ public class Ventana extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        juego.sePuedenSeguirPoniendoFichas(juego.jugadores[juego.turno]);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -3327,11 +3549,41 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JButton boton_99;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel labelTurnoJ1;
     private javax.swing.JLabel labelTurnoJ2;
+    private javax.swing.JLabel lx0;
+    private javax.swing.JLabel lx1;
+    private javax.swing.JLabel lx10;
+    private javax.swing.JLabel lx11;
+    private javax.swing.JLabel lx12;
+    private javax.swing.JLabel lx13;
+    private javax.swing.JLabel lx2;
+    private javax.swing.JLabel lx3;
+    private javax.swing.JLabel lx4;
+    private javax.swing.JLabel lx5;
+    private javax.swing.JLabel lx6;
+    private javax.swing.JLabel lx7;
+    private javax.swing.JLabel lx8;
+    private javax.swing.JLabel lx9;
+    private javax.swing.JLabel lxy;
+    private javax.swing.JLabel ly0;
+    private javax.swing.JLabel ly1;
+    private javax.swing.JLabel ly10;
+    private javax.swing.JLabel ly11;
+    private javax.swing.JLabel ly12;
+    private javax.swing.JLabel ly13;
+    private javax.swing.JLabel ly2;
+    private javax.swing.JLabel ly3;
+    private javax.swing.JLabel ly4;
+    private javax.swing.JLabel ly5;
+    private javax.swing.JLabel ly6;
+    private javax.swing.JLabel ly7;
+    private javax.swing.JLabel ly8;
+    private javax.swing.JLabel ly9;
     private javax.swing.JPanel pTablero;
     private javax.swing.JPanel panelBotones1;
     private javax.swing.JPanel panelBotonesJ0;

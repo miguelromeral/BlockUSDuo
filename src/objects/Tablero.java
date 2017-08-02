@@ -2,7 +2,6 @@
 package objects;
 
 import gui.Ventana;
-import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -108,6 +107,9 @@ public class Tablero {
         
         
         int color = f.color;
+        if(!sePuedePoner(x, y, f)){
+            return false;
+        }
         ponerFicha(x, y, f);
         ArrayList<Celda> celdas_filtradas = new ArrayList<>();
         for(Celda c : esquinas_de_esquinas){
@@ -129,7 +131,11 @@ public class Tablero {
             ven.botones[c.x][c.y].setBackground(Color.BLACK);
         }*/
         int coinc = 0;
+        
+        //Habría que quitar este quitar ficha, que borra las piezas.
+        
         quitarFicha(x, y, f);
+        pintarBotones();
         for(Celda c : celdas_filtradas){
             if(celda[c.x][c.y].color == f.color){
                 System.out.println("C: "+c.x+","+c.y);
@@ -137,6 +143,14 @@ public class Tablero {
             }
         }
         return coinc > 0;
+    }
+    
+    public void pintarBotones(){
+        for(int i=0; i<NUM_CELDAS; i++){
+            for(int j=0; j<NUM_CELDAS; j++){
+                ven.botones[i][j].setBackground(Ventana.getColorByNum(celda[i][j].color));
+            }
+        }
     }
     
     //Indica si hay alguna esquina de su color alrededor suyo, además
