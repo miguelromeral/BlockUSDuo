@@ -35,23 +35,25 @@ public class Partida {
     }
     
     public boolean validoPrimerTurno(int x, int y, Ficha f){
-        switch(total_turnos){
+        switch(turno){
             case 0: 
-                for(int i=0; i<f.x; i++){
-                    for(int j=0; j<f.y; j++){
-         //               System.out.println("Mirando ("+i+","+j+") --> ("+(i+x)+","+(j+y)+")");
-                        if(i+x == 9 && j+y == 4 && f.celda[i][j].color != -1 && f.celda[i][j].esquina){
-                            return true;
+                if(jugadores[0].fichas.size() == Ficha.NUM_FICHAS){
+                    for(int i=0; i<f.x; i++){
+                        for(int j=0; j<f.y; j++){
+                            if(i+x == 9 && j+y == 4 && f.celda[i][j].color != -1){
+                                return true;
+                            }
                         }
                     }
                 }
                 break;
             case 1:
-                for(int i=0; i<f.x; i++){
-                    for(int j=0; j<f.y; j++){
-           //             System.out.println("Mirando ("+i+","+j+") --> ("+(i+x)+","+(j+y)+")");
-                        if(i+x == 4 && j+y == 9 && f.celda[i][j].color != -1 && f.celda[i][j].esquina){
-                            return true;
+                if(jugadores[1].fichas.size() == Ficha.NUM_FICHAS){
+                    for(int i=0; i<f.x; i++){
+                        for(int j=0; j<f.y; j++){
+                            if(i+x == 4 && j+y == 9 && f.celda[i][j].color != -1){
+                                return true;
+                            }
                         }
                     }
                 }

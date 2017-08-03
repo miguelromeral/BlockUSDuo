@@ -294,13 +294,16 @@ public class Ventana extends javax.swing.JFrame {
        ponerFichasRestantesJugador(0);
        ponerFichasRestantesJugador(1);
        
-        restantesJ1.setText("Te quedan "+juego.jugadores[0].restantes()+" bloques.");
-        restantesJ2.setText("Te quedan "+juego.jugadores[1].restantes()+" bloques.");
+        restantesJ1.setText("Te quedan "+juego.jugadores[0].restantes()+" bloques, "+juego.jugadores[0].fichas.size()+" fichas.");
+        restantesJ2.setText("Te quedan "+juego.jugadores[1].restantes()+" bloques, "+juego.jugadores[1].fichas.size()+" fichas.");
         
         labelTurnoJ1.setText("¡TU TURNO!");
         labelTurnoJ2.setText("");
         labelTurnoJ1.setForeground(getColorByNum(0));
         labelTurnoJ2.setForeground(getColorByNum(1));
+        
+        
+       // juego.tablero.ponerFicha(0, 11, Ficha.fichaPorID(8, 0));
         
     }
     
@@ -322,12 +325,12 @@ public class Ventana extends javax.swing.JFrame {
                             limpiarPanel(pj1Seleccionada);
                             limpiarPanel(pj1TodasFichas);
                             ponerFichasRestantesJugador(0);
-                            restantesJ1.setText("Te quedan "+juego.jugadores[0].restantes()+" bloques.");
+                            restantesJ1.setText("Te quedan "+juego.jugadores[0].restantes()+" bloques, "+juego.jugadores[0].fichas.size()+" fichas.");
                         } else {
                             limpiarPanel(pj2Seleccionada);
                             limpiarPanel(pj2TodasFichas);
                             ponerFichasRestantesJugador(1);
-                            restantesJ2.setText("Te quedan "+juego.jugadores[1].restantes()+" bloques.");
+                            restantesJ2.setText("Te quedan "+juego.jugadores[1].restantes()+" bloques, "+juego.jugadores[1].fichas.size()+" fichas.");
                         }
                         pasarTurno();
                     }else{
