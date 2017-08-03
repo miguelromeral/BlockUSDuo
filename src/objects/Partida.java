@@ -62,8 +62,9 @@ public class Partida {
     }
     
     public boolean sePuedenSeguirPoniendoFichas(Jugador jug){
+        tablero.printTableroNum();
         for(Ficha f : jug.fichas){
-            System.out.println(f);
+            System.out.println("Ficha:\n"+f);
             for(int i=0; i<Tablero.NUM_CELDAS; i++){
                 for(int j=0; j<Tablero.NUM_CELDAS; j++){
                     for(int k=0; k<8 ; k++){
@@ -77,9 +78,9 @@ public class Partida {
                             case 6: f.voltear(); break;
                             case 7: f.voltear2(); break;
                         }
-                        System.out.println("Se puede poner ("+i+","+j+","+k+"): "+tablero.sePuedePoner(i, j, f)+", "
+                        System.out.println("Se puede poner ("+i+","+j+", mov: "+k+"): "+tablero.cabeFicha(i, j, f)+", "
                         + "toca esquina: "+tablero.tocaEsquina(i, j, f)+", valido primero: "+validoPrimerTurno(i, j, f));
-                        if(tablero.sePuedePoner(i, j, f) && (validoPrimerTurno(i, j, f) || tablero.tocaEsquina(i, j, f))){
+                        if(tablero.cabeFicha(i, j, f) && (validoPrimerTurno(i, j, f) || tablero.tocaEsquina(i, j, f))){
                             return true;
                         }
                     }

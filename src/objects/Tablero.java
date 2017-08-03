@@ -52,7 +52,7 @@ public class Tablero {
     }
     
     //Indica si no hay fichas ya en el tablero en esa posición
-    public boolean sePuedePoner(int x, int y, Ficha f){
+    public boolean cabeFicha(int x, int y, Ficha f){
         if(x + f.x <= NUM_CELDAS && y + f.y <= NUM_CELDAS){
             for(int i=x; i<x+f.x; i++){
                 for(int j=y; j<y+f.y; j++){
@@ -75,6 +75,9 @@ public class Tablero {
     }
     
     public boolean tocaEsquina(int x, int y, Ficha f){
+        if(!cabeFicha(x, y, f)){
+            return false;
+        }
         ArrayList<Celda> esquinas = new ArrayList<>();
         for(int i=0; i<f.x; i++){
             for(int j=0; j<f.y; j++){
@@ -104,27 +107,30 @@ public class Tablero {
             }
         }
         //Todo bien hasta aquí
-        
-        
-        int color = f.color;
-        if(!sePuedePoner(x, y, f)){
+        if(esquinas_de_esquinas.isEmpty()){
             return false;
         }
+        
+        int color = f.color;
         ponerFicha(x, y, f);
         ArrayList<Celda> celdas_filtradas = new ArrayList<>();
         for(Celda c : esquinas_de_esquinas){
+            System.out.println("--> "+c);
+        }
+        for(Celda c : esquinas_de_esquinas){
       //      System.out.println("---->"+c.x+","+c.y);
             try{
-                if(celda[c.x][c.y].color != f.color && (
+                if((
                         c.x > 0 && celda[c.x - 1][c.y].color == f.color ||
                         c.x < NUM_CELDAS - 1 && celda[c.x + 1][c.y].color == f.color || 
                         c.y > 0 && celda[c.x][c.y-1].color == f.color || 
-                        c.y < NUM_CELDAS - 1&& celda[c.x][c.y+1].color == f.color)){
+                        c.y < NUM_CELDAS - 1&& celda[c.x][c.y+1].color == f.color)
+                        && celda[c.x][c.y].color != f.color){
 
                 }else
                     celdas_filtradas.add(c); 
             }catch(ArrayIndexOutOfBoundsException a){
-                System.err.println("Provocado por: "+c.toString());
+                System.out.println("Provocado por: "+c.toString());
             }
         }
        /* for(Celda c : celdas_filtradas){
@@ -214,6 +220,19 @@ public class Tablero {
             return false;
         }else
             return true;
+    }
+    
+    public void printTableroNum(){
+        for(int i=0; i<NUM_CELDAS; i++){
+            for(int j=0; j<NUM_CELDAS; j++){
+                if(celda[i][j].color != -1)
+                    System.out.print("["+celda[i][j].color+"]");
+                else{
+                    System.out.print("[_]");
+                }
+            }
+            System.out.println("");
+        }
     }
     
 }

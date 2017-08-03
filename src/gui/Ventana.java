@@ -313,7 +313,7 @@ public class Ventana extends javax.swing.JFrame {
       Ficha sel = seleccionada[juego.turno];
         if(sel != null){
            // if(juego.total_turnos < 2 || juego.tablero.sePuedePonerPieza(juego.turno)){
-                if(juego.tablero.sePuedePoner(x,y,sel)){
+                if(juego.tablero.cabeFicha(x,y,sel)){
                     if(juego.validoPrimerTurno(x, y, sel) || juego.tablero.tocaEsquina(x, y, sel)){
                         juego.tablero.ponerFicha(x, y, sel);
                         juego.jugadores[juego.turno].fichas.remove(sel);
@@ -434,9 +434,9 @@ public class Ventana extends javax.swing.JFrame {
         switch(color){
             case -1: return Color.WHITE;
             case 0: return Color.ORANGE;
-            case 1: return Color.BLUE;
+            case 1: return new Color(123, 10, 133);
             case 2: return Color.YELLOW;
-            case 3: return Color.CYAN;
+            case 3: return new Color(158, 71, 133);
             default: return Color.DARK_GRAY;
         }
     }
